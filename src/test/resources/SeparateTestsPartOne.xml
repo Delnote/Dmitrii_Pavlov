@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="separatedTestsPartOne">
+    <test name="groupTesting">
+
+        <groups>
+            <run>
+                <include name="First group"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="hw1.CalculatorLongSumTesting"/>
+            <class name="hw1.CalculatorLongSubTesting"/>
+            <class name="hw1.CalculatorPowTesting"/>
+            <class name="hw1.CalculatorSqrtTesting"/>
+            <class name="hw1.CalculatorSinTesting"/>
+            <class name="hw1.CalculatorIsPositiveTesting"/>
+            <class name="hw1.CalculatorIsNegativeTesting"/>
+        </classes>
+
+    </test>
+</suite>
