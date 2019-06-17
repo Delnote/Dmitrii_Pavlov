@@ -10,6 +10,7 @@ public class CalculatorSinTesting extends BaseTest {
     public void sinTesting(double num) {
         System.out.println("sin test");
         double actual = calc.sin(num);
+        // TODO What is happens with the test if I change data in DataProviders.subSumLongData???
         double expected = 0;
         assertEquals(actual, expected);
     }

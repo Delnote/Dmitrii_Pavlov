@@ -10,7 +10,9 @@ public class CalculatorIsNegativeTesting extends BaseTest {
     public void isNegativeTesting(long num) {
         System.out.println("isNegative test");
         boolean actual = calc.isNegative(num);
+        // TODO I think this variable is redundant
         boolean expected = true;
+        // TODO Could be replaced to assertTrue
         assertEquals(actual, expected);
     }
 

@@ -8,6 +8,7 @@ public class BaseTest {
 
     protected Calculator calc;
 
+    // TODO Why do you use @BeforeClass?
     @BeforeClass (alwaysRun = true)
     public void beforeClass() {
         calc = new Calculator();
