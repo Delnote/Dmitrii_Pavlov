@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CalculatorLongSubTesting extends BaseMethods {
+public class CalculatorLongSubTesting extends BaseTest {
 
     @Test(groups = { "All", "Second group" }, dataProviderClass = DataProviders.class, dataProvider = "subSumLongData")
     public void subLongTesting(long num1, long num2) {

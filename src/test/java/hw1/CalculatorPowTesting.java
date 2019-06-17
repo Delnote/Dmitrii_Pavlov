@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CalculatorPowTesting extends BaseMethods {
+public class CalculatorPowTesting extends BaseTest {
 
     @Test(groups = { "All", "First group" }, dataProviderClass = DataProviders.class, dataProvider = "powData")
     public void powTesting(double num1, double num2) {
