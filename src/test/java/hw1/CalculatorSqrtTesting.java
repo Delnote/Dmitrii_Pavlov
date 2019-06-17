@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CalculatorSqrtTesting extends BaseMethods {
+public class CalculatorSqrtTesting extends BaseTest {
 
     @Test(groups = { "All", "Second group" }, dataProviderClass = DataProviders.class, dataProvider = "sqrtData")
     public void sqrtTesting(double num) {

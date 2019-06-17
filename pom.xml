@@ -38,6 +38,26 @@
                 <suite.xml>src/test/resources/SeparateTestsPartTwo.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>testEpamGithubWebPageExercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/testEpamGithubWebPageExercise1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>testEpamGithubWebPageExercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/testEpamGithubWebPageExercise2.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
@@ -46,6 +66,7 @@
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <calculator.version>1.0</calculator.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <selenium.java.version>3.141.59</selenium.java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -64,6 +85,13 @@
             <scope>system</scope>
             <systemPath>${pom.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.java.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

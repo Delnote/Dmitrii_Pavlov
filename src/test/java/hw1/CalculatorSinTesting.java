@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CalculatorSinTesting extends BaseMethods {
+public class CalculatorSinTesting extends BaseTest {
 
     @Test(groups = { "All", "Second group" }, dataProviderClass = DataProviders.class, dataProvider = "sinData")
     public void sinTesting(double num) {

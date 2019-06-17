@@ -1,11 +1,10 @@
 package hw1;
 
-import com.epam.tat.module4.Calculator;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CalculatorIsNegativeTesting extends BaseMethods {
+public class CalculatorIsNegativeTesting extends BaseTest {
 
     @Test(groups = { "All", "Second group" }, dataProviderClass = DataProviders.class, dataProvider = "isNegativeData")
     public void isNegativeTesting(long num) {
