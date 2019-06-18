@@ -8,6 +8,8 @@ public class BaseTest {
 
     protected Calculator calc;
 
+    // TODO Why do you use @BeforeClass?
+    // BeforeClass используется для задания условий, которые будут выполняться перед каждым взванным тестовым классом.
 
     @BeforeClass (alwaysRun = true)
     public void beforeClass() {
