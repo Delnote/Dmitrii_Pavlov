@@ -8,6 +8,7 @@ public class BaseTest {
 
     protected Calculator calc;
 
+
     @BeforeClass (alwaysRun = true)
     public void beforeClass() {
         calc = new Calculator();
