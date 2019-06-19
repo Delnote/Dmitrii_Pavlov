@@ -10,7 +10,7 @@ public class BaseTest {
 
     // TODO Why do you use @BeforeClass?
     // BeforeClass используется для задания условий, которые будут выполняться перед каждым взванным тестовым классом.
-
+    // TODO Why not @BeforeMethod?
     @BeforeClass (alwaysRun = true)
     public void beforeClass() {
         calc = new Calculator();
