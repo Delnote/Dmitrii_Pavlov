@@ -14,7 +14,6 @@ public class DataProviders {
     // Текущие тестовые данные взяты просто для удобства проведения тестов.
     // Обычно тестовые данные берутся для проверки различных граничных условий.
 
-
     @DataProvider(name = "subSumLongData")
     public static Object[][] subSumLongData(){
         return new Object[][]{{20L, 5L}};
