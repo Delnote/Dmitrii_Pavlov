@@ -39,6 +39,7 @@
             </properties>
         </profile>
 
+        <!-- TODO Why do you need two profiles -->
         <profile>
             <id>testEpamGithubWebPageExercise1</id>
             <activation>
