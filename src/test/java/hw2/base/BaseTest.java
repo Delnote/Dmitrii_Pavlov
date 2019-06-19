@@ -13,6 +13,14 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected String headerMenuPath = "//header/div/nav/ul[1]/li";
+    protected String iconsAtIndexPagePath = "//div[contains(@class, 'benefits')]//span[contains(@class, 'benefit-txt')]";
+    protected String headerMenuServiceDropdownItemsPath = "//ul[@class='dropdown-menu']//a";
+    protected String leftSideMenuServiceDropdown = "//li[@index='3']//ul//span";
+
+    protected String epamText = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD " +
+            "TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD " +
+            "EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN " +
+            "REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
 
 
     @BeforeSuite (alwaysRun = true)
@@ -29,10 +37,16 @@ public class BaseTest {
         driver.close();
     }
 
-    protected List<WebElement> checkMenuItemsIsDisplayed (String itemPath){
+    protected List<WebElement> checkItemsIsDisplayed (String itemPath){
 
         return driver.findElements(By.xpath(itemPath));
 
     }
 
+    protected void loginEpamGithubIoTest () {
+        driver.findElement(By.id("user-icon")).click();
+        driver.findElement(By.id("name")).sendKeys("epam");
+        driver.findElement(By.id("password")).sendKeys("1234");
+        driver.findElement(By.id("login-button")).click();
+    }
 }
