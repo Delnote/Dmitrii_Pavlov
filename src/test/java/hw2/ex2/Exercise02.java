@@ -19,10 +19,7 @@ public class Exercise02 extends BaseTest {
         assertEquals(driver.getTitle(), "Home Page");
 
         // 3. Perform login
-        driver.findElement(By.id("user-icon")).click();
-        driver.findElement(By.id("name")).sendKeys("epam");
-        driver.findElement(By.id("password")).sendKeys("1234");
-        driver.findElement(By.id("login-button")).click();
+        loginEpamGithubIoTest();
 
         // 4. Assert User name in the left-top side of screen that user is loggined
         assertEquals(driver.findElement(By.id("user-name"))
@@ -31,46 +28,21 @@ public class Exercise02 extends BaseTest {
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         driver.findElement(By.xpath("//li[@class='dropdown']//a[contains(text(), 'Service')]"))
                 .click();
-        assertTrue(driver.findElement(By
-                .xpath("//ul[@class='dropdown-menu']//a[contains(text(), 'Support')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//ul[@class='dropdown-menu']//a[contains(text(), 'Dates')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//ul[@class='dropdown-menu']//a[contains(text(), 'Complex Table')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//ul[@class='dropdown-menu']//a[contains(text(), 'Simple Table')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//ul[@class='dropdown-menu']//a[contains(text(), 'Table with pages')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//ul[@class='dropdown-menu']//a[contains(text(), 'Different elements')]"))
-                .isDisplayed());
+        assertEquals(checkItemsIsDisplayed(headerMenuServiceDropdownItemsPath).get(0).getText(), "Support".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(headerMenuServiceDropdownItemsPath).get(1).getText(), "Dates".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(headerMenuServiceDropdownItemsPath).get(3).getText(), "Complex Table".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(headerMenuServiceDropdownItemsPath).get(4).getText(), "Simple Table".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(headerMenuServiceDropdownItemsPath).get(6).getText(), "Table with pages".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(headerMenuServiceDropdownItemsPath).get(7).getText(), "Different elements".toUpperCase());
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
-        driver.findElement(By.xpath("//li[@index='3']"))
-                .click();
-        assertTrue(driver.findElement(By
-                .xpath("//li[@index='3']//span[contains(text(), 'Support')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//li[@index='3']//span[contains(text(), 'Dates')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//li[@index='3']//span[contains(text(), 'Complex Table')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//li[@index='3']//span[contains(text(), 'Simple Table')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//li[@index='3']//span[contains(text(), 'Table with pages')]"))
-                .isDisplayed());
-        assertTrue(driver.findElement(By
-                .xpath("//li[@index='3']//span[contains(text(), 'Different elements')]"))
-                .isDisplayed());
+        driver.findElement(By.xpath("//li[@index='3']")).click();
+        assertEquals(checkItemsIsDisplayed(leftSideMenuServiceDropdown).get(0).getText(), "Support".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(leftSideMenuServiceDropdown).get(1).getText(), "Dates".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(leftSideMenuServiceDropdown).get(2).getText(), "Complex Table".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(leftSideMenuServiceDropdown).get(3).getText(), "Simple Table".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(leftSideMenuServiceDropdown).get(6).getText(), "Table with pages".toUpperCase());
+        assertEquals(checkItemsIsDisplayed(leftSideMenuServiceDropdown).get(7).getText(), "Different elements".toUpperCase());
 
         // 7. Open through the header menu Service -> Different Elements Page
         driver.findElement(By

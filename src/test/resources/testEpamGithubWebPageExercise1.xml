@@ -9,7 +9,7 @@
             </run>
         </groups>
         <classes>
-            <class name="hw2.ex1.Exercise01"/>
+            <class name="hw2.ex1.Exercise01old"/>
         </classes>
     </test>
 </suite>
