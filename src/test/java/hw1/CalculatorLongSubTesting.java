@@ -16,6 +16,10 @@ public class CalculatorLongSubTesting extends BaseTest {
         // мы ожидаем определенный результат в каждом конкретном тесте исходя из
         // заданных данных. Это касается всех тестов с подсчетом в данной HW.
 
+        // TODO should our test failed if I change data in Data Provider ex. 15 - 15?
+        // TODO What is the purpose of using DataProvider here?
+        // TODO How match test data rows we could have in Data Provider?
+
         long expected = 15;
         assertEquals(actual, expected);
     }
