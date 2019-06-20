@@ -14,25 +14,32 @@ public class Exercise01 extends BaseTest {
     @Test (groups = "All")
     public void testEpamGinhubSiteOptions() {
 
+        // TODO It could be extracted to the BeforeMethod
+        // TODO It is allow avoid code duplication
         // 1. Open test site by URL
         driver.get("https://epam.github.io/JDI");
 
+        // TODO Code duplication with Exercise2
         // 2. Assert Browser title
         assertEquals(driver.getTitle(), "Home Page");
 
         // 3. Perform login
         loginEpamGithubIoTest();
 
+        // TODO Code duplication with Exercise2
         // 4. Assert User name in the left-top side of screen that user is loggined
         assertEquals(driver.findElement(By.id("user-name"))
                 .getText(), "PITER CHAILOVSKII");
 
         // 5. Assert Browser title
+        // TODO Code duplication with line assertEquals(driver.getTitle(), "Home Page");
         assertEquals(driver.getTitle(), "Home Page");
 
         // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
 
         assertEquals(checkItemsIsDisplayed(headerMenuPath).size(), 4);
+        // TODO IS it possible to avoid using indexes to check elements?
+        // TODO This check could be extracted to separate paraetrized method
         assertEquals(checkItemsIsDisplayed(headerMenuPath).get(0).getText(), "Home".toUpperCase());
         assertEquals(checkItemsIsDisplayed(headerMenuPath).get(1).getText(), "Contact form".toUpperCase());
         assertEquals(checkItemsIsDisplayed(headerMenuPath).get(2).getText(), "Service".toUpperCase());
@@ -40,7 +47,9 @@ public class Exercise01 extends BaseTest {
 
         // 7. Assert that there are 4 images on the Index Page and they are displayed
 
+        // TODO What is the purpose of the current driver invocation?
         driver.get("http://epam.github.io/JDI/index.html");
+        // TODO It is could be simplified
         assertTrue(driver.findElement(By.cssSelector(".icon-practise")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".icon-custom")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".icon-multi")).isDisplayed());
@@ -48,6 +57,8 @@ public class Exercise01 extends BaseTest {
 
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
+        // TODO IS it possible to avoid using indexes to check elements?
+        // TODO This check could be extracted to separate paraetrized method
         assertEquals(checkItemsIsDisplayed(iconsAtIndexPagePath).get(0)
                 .getText(), "To include good practices\nand ideas from successful\nEPAM project");
         assertEquals(checkItemsIsDisplayed(iconsAtIndexPagePath).get(1)
