@@ -12,31 +12,39 @@ public class Exercise01 extends BaseTest {
 
 
     @Test (groups = "All")
-    public void testEpamGinhubSiteOptions() {
+    public void testEpamGithubSiteOptions() {
 
-        // 1. Open test site by URL
-        driver.get("https://epam.github.io/JDI");
+        // TODO It could be extracted to the BeforeMethod
+        // TODO It is allow avoid code duplication
+        // Fixed
 
-        // 2. Assert Browser title
-        assertEquals(driver.getTitle(), "Home Page");
+        // TODO Code duplication with Exercise2
+        // Fixed
 
-        // 3. Perform login
-        loginEpamGithubIoTest();
 
-        // 4. Assert User name in the left-top side of screen that user is loggined
-        assertEquals(driver.findElement(By.id("user-name"))
-                .getText(), "PITER CHAILOVSKII");
 
-        // 5. Assert Browser title
-        assertEquals(driver.getTitle(), "Home Page");
+
+
+        // TODO Code duplication with Exercise2
+
+
+        commonFirstMethods();
+
+        // TODO Code duplication with line assertEquals(driver.getTitle(), "Home Page");
+        // Fixed. This is step 5 in HW. Moved to commonFirstMethods().
+
 
         // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
 
-        assertEquals(checkItemsIsDisplayed(headerMenuPath).size(), 4);
-        assertEquals(checkItemsIsDisplayed(headerMenuPath).get(0).getText(), "Home".toUpperCase());
-        assertEquals(checkItemsIsDisplayed(headerMenuPath).get(1).getText(), "Contact form".toUpperCase());
-        assertEquals(checkItemsIsDisplayed(headerMenuPath).get(2).getText(), "Service".toUpperCase());
-        assertEquals(checkItemsIsDisplayed(headerMenuPath).get(3).getText(), "Metals & Colors".toUpperCase());
+        assertEquals(creatingListOfItemsByPath(headerMenuPath).size(), 4);
+        // TODO IS it possible to avoid using indexes to check elements?
+        // TODO This check could be extracted to separate paraetrized method
+
+
+//        assertEquals(creatingListOfItemsByPath(headerMenuPath).get(0).getText(), "Home".toUpperCase());
+//        assertEquals(creatingListOfItemsByPath(headerMenuPath).get(1).getText(), "Contact form".toUpperCase());
+//        assertEquals(creatingListOfItemsByPath(headerMenuPath).get(2).getText(), "Service".toUpperCase());
+//        assertEquals(creatingListOfItemsByPath(headerMenuPath).get(3).getText(), "Metals & Colors".toUpperCase());
 
         // 7. Assert that there are 4 images on the Index Page and they are displayed
 
@@ -48,13 +56,13 @@ public class Exercise01 extends BaseTest {
 
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
-        assertEquals(checkItemsIsDisplayed(iconsAtIndexPagePath).get(0)
+        assertEquals(creatingListOfItemsByPath(iconsAtIndexPagePath).get(0)
                 .getText(), "To include good practices\nand ideas from successful\nEPAM project");
-        assertEquals(checkItemsIsDisplayed(iconsAtIndexPagePath).get(1)
+        assertEquals(creatingListOfItemsByPath(iconsAtIndexPagePath).get(1)
                 .getText(), "To be flexible and\ncustomizable");
-        assertEquals(checkItemsIsDisplayed(iconsAtIndexPagePath).get(2)
+        assertEquals(creatingListOfItemsByPath(iconsAtIndexPagePath).get(2)
                 .getText(), "To be multiplatform");
-        assertEquals(checkItemsIsDisplayed(iconsAtIndexPagePath).get(3)
+        assertEquals(creatingListOfItemsByPath(iconsAtIndexPagePath).get(3)
                 .getText(), "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
 
         // 9. Assert a text of the main headers
