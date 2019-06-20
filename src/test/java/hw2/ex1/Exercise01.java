@@ -23,8 +23,6 @@ public class Exercise01 extends BaseTest {
 
 
 
-
-
         // TODO Code duplication with Exercise2
 
 
@@ -48,13 +46,16 @@ public class Exercise01 extends BaseTest {
 
         // 7. Assert that there are 4 images on the Index Page and they are displayed
 
+        // TODO What is the purpose of the current driver invocation?
         driver.get("http://epam.github.io/JDI/index.html");
+        // TODO It is could be simplified
         assertTrue(driver.findElement(By.cssSelector(".icon-practise")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".icon-custom")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".icon-multi")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".icon-base")).isDisplayed());
 
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
+
 
         assertEquals(creatingListOfItemsByPath(iconsAtIndexPagePath).get(0)
                 .getText(), "To include good practices\nand ideas from successful\nEPAM project");

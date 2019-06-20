@@ -36,6 +36,7 @@ public class BaseTest {
                 Paths.get("src/test/resources/driver/chromedriver.exe")
                         .toAbsolutePath().toString());
         // TODO Why do you create driver BeforeSuite?
+
         // Fixed, forgot to move it to BeforeMethod.
     }
 
@@ -46,12 +47,14 @@ public class BaseTest {
         driver.get("https://epam.github.io/JDI");
     }
 
+
     @AfterMethod (alwaysRun = true)
     public void tearDown() {
         driver.close();
     }
 
     // TODO Where is check in this method?
+
     // Fixed name. This method gathering elements by given path if they exists.
     protected List<WebElement> creatingListOfItemsByPath(String itemPath){
 
