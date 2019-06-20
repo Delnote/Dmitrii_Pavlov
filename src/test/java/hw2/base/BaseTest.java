@@ -70,7 +70,6 @@ public class BaseTest {
         assertEquals(driver.getTitle(), "Home Page");
     }
 
-
     protected void commonFirstMethods() {
 
         // 2. Assert Browser title
