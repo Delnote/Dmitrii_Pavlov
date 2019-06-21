@@ -10,7 +10,7 @@
         </groups>
         <!-- TODO suite does not work-->
         <classes>
-            <class name="hw2.ex2.Exercise02old"/>
+            <class name="hw2.ex2.Exercise02"/>
         </classes>
     </test>
 </suite>
