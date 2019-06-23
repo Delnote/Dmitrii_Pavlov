@@ -67,7 +67,7 @@ public class Exercise01 extends BaseTest {
         assertEquals(driver.findElement(By.name("jdi-text")).getText(), epamText);
 
         // 10. Assert that there is the iframe in the center of page
-        assertTrue(driver.findElement(By.id("iframe")).isDisplayed());
+        elementIsDisplayed(driver.findElement(By.id("iframe")));
 
         // 11. Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         assertTrue(driver.switchTo().frame(0).findElement(By.id("epam_logo")).isDisplayed());
@@ -83,10 +83,10 @@ public class Exercise01 extends BaseTest {
                 .getAttribute("href"), "https://github.com/epam/JDI");
 
         // 15. Assert that there is Left Section
-        assertTrue(driver.findElement(By.name("navigation-sidebar")).isDisplayed());
+        elementIsDisplayed(driver.findElement(By.name("navigation-sidebar")));
 
         // 16. Assert that there is Footer
-        assertTrue((driver.findElement(By.cssSelector(".footer-bg"))).isDisplayed());
+        elementIsDisplayed(driver.findElement(By.cssSelector(".footer-bg")));
 
     }
 
