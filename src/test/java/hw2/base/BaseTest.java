@@ -20,8 +20,12 @@ public class BaseTest {
 
     protected int checkboxesValue = 4;
 
+    // TODO I think trueStatement & falseStatement field are redundant
     protected String trueStatement = "true";
     protected String falseStatement = "false";
+
+    // TODO This variables should be as constants
+    // TODO All class fields below should be constancs
     protected String wind = "Wind";
     protected String water = "Water";
     protected String selen = "Selen";
@@ -29,12 +33,10 @@ public class BaseTest {
     protected String metal = "metal";
     protected String colors = "Colors";
     protected String pageTitle = "Home Page";
-    // TODO Locator could be improved
     // Improved
     protected String headerMenuPath = "//ul[contains(@class, 'm-')]/li";
     protected String iconsAtIndexPagePath = "//div[contains(@class, 'benefits')]//span[contains(@class, 'benefit-txt')]";
     protected String headerMenuServiceDropdownItemsPath = "//ul[@class='dropdown-menu']//a";
-    // TODO Locator could be improved
     // Improved
     protected String leftSideMenuServiceDropdownPath = "//li[@index='3' and contains (@class, ('menu-title'))]//li";
     protected String iconsPath = "//span[contains(@class, 'icons-benefit')]";
@@ -60,8 +62,6 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver",
                 Paths.get("src/test/resources/driver/chromedriver.exe")
                         .toAbsolutePath().toString());
-        // TODO Why do you create driver BeforeSuite?
-        // Fixed, forgot to move it to BeforeMethod.
     }
 
     @BeforeMethod (alwaysRun = true)
@@ -83,10 +83,12 @@ public class BaseTest {
         driver.findElement(By.id("login-button")).click();
     }
 
+    // TODO webPageTitleCheck
     protected void webpageTitleCheck () {
         assertEquals(driver.getTitle(), pageTitle);
     }
 
+    // TODO Method name is unclear
     protected void assertCommonFirstMethods() {
 
         // 2. Assert Browser title
@@ -104,8 +106,6 @@ public class BaseTest {
 
     }
 
-    // TODO Where is check in this method?
-    // Fixed name. This method gathering elements by given path if they exists.
     protected List<WebElement> creatingListOfItemsByPath(String itemPath){
 
         return driver.findElements(By.xpath(itemPath));
@@ -133,6 +133,7 @@ public class BaseTest {
         assertTrue(element.isDisplayed());
     }
 
+    // TODO webElementsListSize
     protected int webelementsListSize(String path) {
 
         return creatingListOfItemsByPath(path).size();
