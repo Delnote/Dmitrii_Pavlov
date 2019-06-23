@@ -12,37 +12,45 @@ public class Exercise02 extends BaseTest {
     @Test(groups = "All")
     public void testEpamGithubSiteOptions() {
 
+        // TODO It could be extracted to the BeforeMethod
+        // Fixed
+        // TODO It is allow avoid code duplication
+        // Fixed
         // 1. Open test site by URL
-        driver.get("https://epam.github.io/JDI");
 
+        assertCommonFirstMethods();
+
+        // TODO Code duplication with Exercise1
+        // Fixed
         // 2. Assert Browser title
-        assertEquals(driver.getTitle(), "Home Page");
+
 
         // 3. Perform login
-        loginEpamGithubIoTest();
 
+
+        // TODO Code duplication with Exercise1
+        // Fixed
         // 4. Assert User name in the left-top side of screen that user is loggined
-        assertEquals(driver.findElement(By.id("user-name"))
-                .getText(), "PITER CHAILOVSKII");
+
 
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         driver.findElement(By.xpath("//li[@class='dropdown']//a[contains(text(), 'Service')]"))
                 .click();
-        assertEquals(creatingListOfItemsByPath(headerMenuServiceDropdownItemsPath).get(0).getText(), "Support".toUpperCase());
-        assertEquals(creatingListOfItemsByPath(headerMenuServiceDropdownItemsPath).get(1).getText(), "Dates".toUpperCase());
-        assertEquals(creatingListOfItemsByPath(headerMenuServiceDropdownItemsPath).get(3).getText(), "Complex Table".toUpperCase());
-        assertEquals(creatingListOfItemsByPath(headerMenuServiceDropdownItemsPath).get(4).getText(), "Simple Table".toUpperCase());
-        assertEquals(creatingListOfItemsByPath(headerMenuServiceDropdownItemsPath).get(6).getText(), "Table with pages".toUpperCase());
-        assertEquals(creatingListOfItemsByPath(headerMenuServiceDropdownItemsPath).get(7).getText(), "Different elements".toUpperCase());
+        // TODO IS it possible to avoid using indexes to check elements?
+        // Fixed
+        // TODO This check could be extracted to separate parametrized method
+        // Fixed
+        checkingActualElements(headerMenuServiceDropdownItemsPath, listOfDropdownMenuElements);
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
-        driver.findElement(By.xpath("//li[@index='3']")).click();
-        assertEquals(creatingListOfItemsByPath(leftSideMenuServiceDropdown).get(0).getText(), "Support");
-        assertEquals(creatingListOfItemsByPath(leftSideMenuServiceDropdown).get(1).getText(), "Dates");
-        assertEquals(creatingListOfItemsByPath(leftSideMenuServiceDropdown).get(2).getText(), "Complex Table");
-        assertEquals(creatingListOfItemsByPath(leftSideMenuServiceDropdown).get(3).getText(), "Simple Table");
-        assertEquals(creatingListOfItemsByPath(leftSideMenuServiceDropdown).get(6).getText(), "Table with pages");
-        assertEquals(creatingListOfItemsByPath(leftSideMenuServiceDropdown).get(7).getText(), "Different elements");
+        // TODO Locator could be improved
+        // Improved
+        driver.findElement(By.xpath("//a[@ui = 'label' and contains(string(), 'Service')]")).click();
+        // TODO IS it possible to avoid using indexes to check elements?
+        // Fixed
+        // TODO This check could be extracted to separate parametrized method
+        // Fixed
+        checkingActualElements(leftSideMenuServiceDropdownPath, listOfLeftDropdownMenuElements);
 
         // 7. Open through the header menu Service -> Different Elements Page
         driver.findElement(By
@@ -53,54 +61,84 @@ public class Exercise02 extends BaseTest {
                 .click();
 
         // 8. Check interface on Different elements page, it contains all needed elements
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Water')]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Earth')]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Wind')]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Fire')]")).isDisplayed();
+        // TODO Is it possible to simplify this peace of code?
+        // done
+        // TODO What do you expect from this peace of code?
+        // Forgot assert
+        // TODO Locator could be simplified
+        // Fixed
+
+        // assert checkboxes
+        assertEquals(webelementsListSize("//div[@class = 'main-content-hg']/div[2]/label"), checkboxesValue);
+        // assert radio buttons
+        assertEquals(webelementsListSize("//div[@class = 'main-content-hg']/div[3]/label"), checkboxesValue);
+        // assert dropdown colors
+        elementIsDisplayed(driver.findElement(By.cssSelector(".colors")));
+        // buttons
+        elementIsDisplayed(driver.findElement(By.name("Default Button")));
+        elementIsDisplayed(driver.findElement(By.xpath("//input[@value = 'Button']")));
+
 
         // 9. Assert that there is Right Section
-        driver.findElement(By.name("log-sidebar")).isDisplayed();
+        // TODO What do you expect from this method?
+        // Forgot assert, fixed
+        elementIsDisplayed(driver.findElement(By.name("log-sidebar")));
 
         // 10. Assert that there is Left Section
-        driver.findElement(By.name("navigation-sidebar")).isDisplayed();
+        // TODO What do you expect from this method?
+        // Forgot assert, fixed
+        elementIsDisplayed(driver.findElement(By.name("navigation-sidebar")));
 
         // 11. Select checkboxes
-        driver.findElement(By.xpath("//label[@class='label-radio' and contains(string(), 'Gold')]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@class='label-radio' and contains(string(), 'Silver')]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@class='label-radio' and contains(string(), 'Bronze')]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@class='label-radio' and contains(string(), 'Selen')]")).isDisplayed();
+        // TODO What do you expect from this methods?
+        // Forgot assert
+        // TODO Locator could be simplified
+        // Fixed
+        driver.findElement(By.xpath("//label[contains(string(), 'Water')]")).click();
+        driver.findElement(By.xpath("//label[contains(string(), 'Wind')]")).click();
 
         // 12. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Water')]")).click();
-        assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains("Water: condition changed to true"));
+        // TODO Locator could be simplified
+        //fixed
+        checkWeatherLog(water, trueStatement);
+        checkWeatherLog(wind, trueStatement);
 
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Wind')]")).click();
-        assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains("Wind: condition changed to true"));
+        // TODO code duplication
+        // TODO it is could be extracted to separate parametrized method
+        // Fixed
 
         // 13. Select radio Selen
-        driver.findElement(By.xpath("//label[@class='label-radio' and contains(string(), 'Selen')]")).click();
+        // TODO Locator could be simplified
+        //fixed
+        driver.findElement(By.xpath("//label[contains(string(), 'Selen')]")).click();
 
         // 14. Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
-        assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains("metal: value changed to Selen"));
+        // TODO code duplication
+        // TODO it is could be extracted to separate parametrized method
+        checkLog(metal, selen);
 
         // 15. Select in dropdown
-        driver.findElement(By.xpath("//select[@class='uui-form-element']//option[contains(text(), 'Yellow')]")).click();
+        // TODO Locator could be simplified
+        // Fixed
+        driver.findElement(By.xpath("//option[contains(text(), 'Yellow')]")).click();
 
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
-        assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains("Colors: value changed to Yellow"));
+        // TODO code duplication
+        // TODO it is could be extracted to separate parametrized method
+        // Fixed
+        checkLog(colors, yellow);
 
         // 17. Unselect and assert checkboxes
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Water')]")).click();
-        driver.findElement(By.xpath("//label[@class='label-checkbox' and contains(string(), 'Wind')]")).click();
+        // TODO Locator could be simplifie
+        // Fixed
+        driver.findElement(By.xpath("//label[contains(string(), 'Water')]")).click();
+        driver.findElement(By.xpath("//label[contains(string(), 'Wind')]")).click();
 
         // 18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
-        assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains("Water: condition changed to false"));
-        assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains("Wind: condition changed to false"));
+        // TODO code duplication
+        // TODO it is could be extracted to separate parametrized method
+        // Fixed
+        checkWeatherLog(water, falseStatement);
+        checkWeatherLog(wind, falseStatement);
     }
 }
