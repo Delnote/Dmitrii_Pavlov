@@ -39,8 +39,6 @@
             </properties>
         </profile>
 
-        <!-- TODO Why do you need two profiles -->
-        <!-- Fixed -->
         <profile>
             <id>testEpamGithubWebPageHW2</id>
             <activation>
