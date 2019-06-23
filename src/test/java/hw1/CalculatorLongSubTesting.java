@@ -10,6 +10,7 @@ public class CalculatorLongSubTesting extends BaseTest {
     public void subLongTesting(long num1, long num2, long num3) {
         System.out.println("sub long test");
         long actual = calc.sub(num1,num2);
+
         assertEquals(actual, num3);
     }
 

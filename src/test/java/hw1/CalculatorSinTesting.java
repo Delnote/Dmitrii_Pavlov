@@ -10,6 +10,7 @@ public class CalculatorSinTesting extends BaseTest {
     public void sinTesting(double num, double num2) {
         System.out.println("sin test");
         double actual = calc.sin(num);
+
         assertEquals(actual, num2);
     }
 

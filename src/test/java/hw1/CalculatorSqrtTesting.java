@@ -10,6 +10,7 @@ public class CalculatorSqrtTesting extends BaseTest {
     public void sqrtTesting(double num, double num2) {
         System.out.println("sqrt test");
         double actual = calc.sqrt(num);
+
         assertEquals(actual, num2);
     }
 

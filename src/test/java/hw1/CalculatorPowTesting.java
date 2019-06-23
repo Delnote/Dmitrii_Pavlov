@@ -10,6 +10,7 @@ public class CalculatorPowTesting extends BaseTest {
     public void powTesting(double num1, double num2, double num3) {
         System.out.println("pow test");
         double actual = calc.pow(num1,num2);
+
         assertEquals(actual, num3);
     }
 
