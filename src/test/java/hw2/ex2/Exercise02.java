@@ -64,6 +64,7 @@ public class Exercise02 extends BaseTest {
         driver.findElement(By.xpath("//label[contains(string(), 'Wind')]")).click();
 
         // 12. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
+      
         checkWeatherLog(water, true);
         checkWeatherLog(wind, true);
 
