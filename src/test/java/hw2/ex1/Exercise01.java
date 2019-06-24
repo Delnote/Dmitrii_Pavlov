@@ -18,12 +18,9 @@ public class Exercise01 extends BaseTest {
     public void testEpamGithubSiteOptions() {
 
         // TODO Method name is unclear
-        assertCommonFirstMethods();
+        // Fixed
 
-        // Fixed. This is step 5 in HW. Moved to BaseTest().
-
-
-        // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
+        loginEpamGithubPage();
 
         assertEquals(creatingListOfItemsByPath(headerMenuPath).size(), 4);
 
@@ -41,7 +38,7 @@ public class Exercise01 extends BaseTest {
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
         assertEquals(creatingListOfElements(iconsAtIndexPagePath) ,listOfUnderIconsText);
-//
+
         // 9. Assert a text of the main headers
 
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");

@@ -18,40 +18,39 @@ public class BaseTest {
 
     protected WebDriver driver;
 
-    protected int checkboxesValue = 4;
+    protected final int checkboxesValue = 4;
 
     // TODO I think trueStatement & falseStatement field are redundant
-    protected String trueStatement = "true";
-    protected String falseStatement = "false";
+    // Fixed
 
     // TODO This variables should be as constants
-    // TODO All class fields below should be constancs
-    protected String wind = "Wind";
-    protected String water = "Water";
-    protected String selen = "Selen";
-    protected String yellow = "Yellow";
-    protected String metal = "metal";
-    protected String colors = "Colors";
-    protected String pageTitle = "Home Page";
-    // Improved
-    protected String headerMenuPath = "//ul[contains(@class, 'm-')]/li";
-    protected String iconsAtIndexPagePath = "//div[contains(@class, 'benefits')]//span[contains(@class, 'benefit-txt')]";
-    protected String headerMenuServiceDropdownItemsPath = "//ul[@class='dropdown-menu']//a";
-    // Improved
-    protected String leftSideMenuServiceDropdownPath = "//li[@index='3' and contains (@class, ('menu-title'))]//li";
-    protected String iconsPath = "//span[contains(@class, 'icons-benefit')]";
-    protected String checkboxPath = "//div[@class = 'main-content-hg']/div[2]/label";
-    protected String radioButtonPath = "//div[@class = 'main-content-hg']/div[3]/label";
+    // TODO All class fields below should be constants
+    // Fixed
 
-    protected String epamText = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD " +
+    protected final String wind = "Wind";
+    protected final String water = "Water";
+    protected final String selen = "Selen";
+    protected final String yellow = "Yellow";
+    protected final String metal = "metal";
+    protected final String colors = "Colors";
+    protected final String pageTitle = "Home Page";
+    protected final String headerMenuPath = "//ul[contains(@class, 'm-')]/li";
+    protected final String iconsAtIndexPagePath = "//div[contains(@class, 'benefits')]//span[contains(@class, 'benefit-txt')]";
+    protected final String headerMenuServiceDropdownItemsPath = "//ul[@class='dropdown-menu']//a";
+    protected final String leftSideMenuServiceDropdownPath = "//li[@index='3' and contains (@class, ('menu-title'))]//li";
+    protected final String iconsPath = "//span[contains(@class, 'icons-benefit')]";
+    protected final String checkboxPath = "//label[@class = 'label-checkbox']";
+    protected final String radioButtonPath = "//label[@class = 'label-radio']";
+
+    protected final String epamText = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD " +
             "TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD " +
             "EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN " +
             "REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
 
-    protected List<String> listOfHeaderMenuItemsElements = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-    protected List<String> listOfDropdownMenuElements = Arrays.asList("SUPPORT", "DATES", "COMPLEX TABLE", "SIMPLE TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS");
-    protected List<String> listOfLeftDropdownMenuElements = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
-    protected List<String> listOfUnderIconsText = Arrays.asList("To include good practices\nand ideas from successful\nEPAM project",
+    protected final List<String> listOfHeaderMenuItemsElements = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+    protected final List<String> listOfDropdownMenuElements = Arrays.asList("SUPPORT", "DATES", "COMPLEX TABLE", "SIMPLE TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS");
+    protected final List<String> listOfLeftDropdownMenuElements = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
+    protected final List<String> listOfUnderIconsText = Arrays.asList("To include good practices\nand ideas from successful\nEPAM project",
             "To be flexible and\ncustomizable",
             "To be multiplatform",
             "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
@@ -84,15 +83,17 @@ public class BaseTest {
     }
 
     // TODO webPageTitleCheck
-    protected void webpageTitleCheck () {
+    // Fixed
+    protected void webPageTitleCheck() {
         assertEquals(driver.getTitle(), pageTitle);
     }
 
     // TODO Method name is unclear
-    protected void assertCommonFirstMethods() {
+    // Fixed
+    protected void loginEpamGithubPage() {
 
         // 2. Assert Browser title
-        webpageTitleCheck();
+        webPageTitleCheck();
 
         // 3. Perform login
         loginEpamGithubIoTest();
@@ -102,7 +103,7 @@ public class BaseTest {
                 .getText(), "PITER CHAILOVSKII");
 
         // 5. Assert Browser title
-        webpageTitleCheck();
+        webPageTitleCheck();
 
     }
 
@@ -134,14 +135,15 @@ public class BaseTest {
     }
 
     // TODO webElementsListSize
-    protected int webelementsListSize(String path) {
+    // Fixed
+    protected int webElementsListSize(String path) {
 
         return creatingListOfItemsByPath(path).size();
     }
 
-    protected void checkWeatherLog(String element, String statement) {
+    protected void checkWeatherLog(String element, Boolean statement) {
         assertTrue(driver.findElement(By.cssSelector(".logs"))
-                .getText().contains(String.format("%s: condition changed to %s", element, statement)));
+                .getText().contains(String.format("%s: condition changed to %b", element, statement)));
     }
 
     protected void checkLog(String type, String element) {

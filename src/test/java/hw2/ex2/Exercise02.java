@@ -13,16 +13,9 @@ public class Exercise02 extends BaseTest {
     public void testEpamGithubSiteOptions() {
 
         // TODO Method name is unclear
-        assertCommonFirstMethods();
+        // Fixed
 
-        // 2. Assert Browser title
-
-
-        // 3. Perform login
-
-
-        // 4. Assert User name in the left-top side of screen that user is loggined
-
+        loginEpamGithubPage();
 
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         driver.findElement(By.xpath("//li[@class='dropdown']//a[contains(text(), 'Service')]"))
@@ -30,7 +23,9 @@ public class Exercise02 extends BaseTest {
         checkingActualElements(headerMenuServiceDropdownItemsPath, listOfDropdownMenuElements);
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
-        driver.findElement(By.xpath("//a[@ui = 'label' and contains(string(), 'Service')]")).click();
+
+        driver.findElement(By.xpath("//a[@ui = 'label' and contains(string(), 'Service')]"))
+                .click();
         checkingActualElements(leftSideMenuServiceDropdownPath, listOfLeftDropdownMenuElements);
 
         // 7. Open through the header menu Service -> Different Elements Page
@@ -45,10 +40,12 @@ public class Exercise02 extends BaseTest {
 
         // assert checkboxes
         // TODO Is it possible avoid using index in locator
-        assertEquals(webelementsListSize("//div[@class = 'main-content-hg']/div[2]/label"), checkboxesValue);
+        // Fixed
+        assertEquals(webElementsListSize(checkboxPath), checkboxesValue);
         // assert radio buttons
         // TODO Is it possible avoid using index in locator
-        assertEquals(webelementsListSize("//div[@class = 'main-content-hg']/div[3]/label"), checkboxesValue);
+        // Fixed
+        assertEquals(webElementsListSize(radioButtonPath), checkboxesValue);
         // assert dropdown colors
         elementIsDisplayed(driver.findElement(By.cssSelector(".colors")));
         // buttons
@@ -67,28 +64,34 @@ public class Exercise02 extends BaseTest {
         driver.findElement(By.xpath("//label[contains(string(), 'Wind')]")).click();
 
         // 12. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
-        checkWeatherLog(water, trueStatement);
-        checkWeatherLog(wind, trueStatement);
-
+      
+        checkWeatherLog(water, true);
+        checkWeatherLog(wind, true);
 
         // 13. Select radio Selen
+
         driver.findElement(By.xpath("//label[contains(string(), 'Selen')]")).click();
 
         // 14. Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
+
         checkLog(metal, selen);
 
         // 15. Select in dropdown
+
         driver.findElement(By.xpath("//option[contains(text(), 'Yellow')]")).click();
 
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
+
         checkLog(colors, yellow);
 
         // 17. Unselect and assert checkboxes
+
         driver.findElement(By.xpath("//label[contains(string(), 'Water')]")).click();
         driver.findElement(By.xpath("//label[contains(string(), 'Wind')]")).click();
 
         // 18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
-        checkWeatherLog(water, falseStatement);
-        checkWeatherLog(wind, falseStatement);
+
+        checkWeatherLog(water, false);
+        checkWeatherLog(wind, false);
     }
 }
