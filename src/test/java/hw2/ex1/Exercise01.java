@@ -17,36 +17,17 @@ public class Exercise01 extends BaseTest {
     @Test (groups = "All")
     public void testEpamGithubSiteOptions() {
 
-        // TODO It could be extracted to the BeforeMethod
-        // TODO It is allow avoid code duplication
+        // TODO Method name is unclear
         // Fixed
 
-        // TODO Code duplication with Exercise2
-        // Fixed
-
-        // TODO Code duplication with Exercise2
-
-        assertCommonFirstMethods();
-
-        // TODO Code duplication with line assertEquals(driver.getTitle(), "Home Page");
-        // Fixed. This is step 5 in HW. Moved to BaseTest().
-
-
-        // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
+        loginEpamGithubPage();
 
         assertEquals(creatingListOfItemsByPath(headerMenuPath).size(), 4);
-        // TODO IS it possible to avoid using indexes to check elements?
-        // TODO This check could be extracted to separate parametrized method
 
         assertEquals(creatingListOfElements(headerMenuPath) ,listOfHeaderMenuItemsElements);
 
         // 7. Assert that there are 4 images on the Index Page and they are displayed
 
-        // TODO What is the purpose of the current driver invocation?
-        // Don't know, what I thought about...
-
-        // TODO It is could be simplified
-        // Fixed
         assertEquals(creatingListOfElements(iconsPath).size(), 4);
 
         List<WebElement> icons = creatingListOfItemsByPath(iconsPath);
@@ -56,9 +37,6 @@ public class Exercise01 extends BaseTest {
 
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
-        // TODO IS it possible to avoid using indexes to check elements?
-        // TODO This check could be extracted to separate paraetrized method
-        // Fixed
         assertEquals(creatingListOfElements(iconsAtIndexPagePath) ,listOfUnderIconsText);
 //
         // 9. Assert a text of the main headers
