@@ -20,12 +20,9 @@ public class BaseTest {
 
     protected final int checkboxesValue = 4;
 
-    // TODO I think trueStatement & falseStatement field are redundant
-    // Fixed
-
     // TODO This variables should be as constants
     // TODO All class fields below should be constants
-    // Fixed
+    // TODO How is making constant in Java? :)
 
     protected final String wind = "Wind";
     protected final String water = "Water";
@@ -82,14 +79,10 @@ public class BaseTest {
         driver.findElement(By.id("login-button")).click();
     }
 
-    // TODO webPageTitleCheck
-    // Fixed
     protected void webPageTitleCheck() {
         assertEquals(driver.getTitle(), pageTitle);
     }
 
-    // TODO Method name is unclear
-    // Fixed
     protected void loginEpamGithubPage() {
 
         // 2. Assert Browser title
@@ -134,8 +127,6 @@ public class BaseTest {
         assertTrue(element.isDisplayed());
     }
 
-    // TODO webElementsListSize
-    // Fixed
     protected int webElementsListSize(String path) {
 
         return creatingListOfItemsByPath(path).size();

@@ -12,9 +12,6 @@ public class Exercise02 extends BaseTest {
     @Test(groups = "All")
     public void testEpamGithubSiteOptions() {
 
-        // TODO Method name is unclear
-        // Fixed
-
         loginEpamGithubPage();
 
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
@@ -39,12 +36,8 @@ public class Exercise02 extends BaseTest {
         // 8. Check interface on Different elements page, it contains all needed elements
 
         // assert checkboxes
-        // TODO Is it possible avoid using index in locator
-        // Fixed
         assertEquals(webElementsListSize(checkboxPath), checkboxesValue);
         // assert radio buttons
-        // TODO Is it possible avoid using index in locator
-        // Fixed
         assertEquals(webElementsListSize(radioButtonPath), checkboxesValue);
         // assert dropdown colors
         elementIsDisplayed(driver.findElement(By.cssSelector(".colors")));
