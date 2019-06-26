@@ -38,7 +38,7 @@ public class Exercise01 extends BaseTest {
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
         assertEquals(creatingListOfElements(iconsAtIndexPagePath) ,listOfUnderIconsText);
-//
+
         // 9. Assert a text of the main headers
 
         assertEquals(driver.findElement(By.name("main-title")).getText(), "EPAM FRAMEWORK WISHES…");
