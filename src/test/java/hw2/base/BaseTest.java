@@ -20,10 +20,6 @@ public class BaseTest {
 
     protected final int checkboxesValue = 4;
 
-    // TODO This variables should be as constants
-    // TODO All class fields below should be constants
-    // TODO How is making constant in Java? :)
-
     protected final String wind = "Wind";
     protected final String water = "Water";
     protected final String selen = "Selen";
