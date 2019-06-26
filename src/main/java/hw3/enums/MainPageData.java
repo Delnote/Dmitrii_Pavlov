@@ -1,0 +1,22 @@
+package hw3.enums;
+
+public enum MainPageData {
+
+    HOME_PAGE("Home Page"),
+    MAIN_PAGE_TEXT_HEADER("EPAM FRAMEWORK WISHES…"),
+    SUB_HEADER_TEXT("JDI GITHUB"),
+    MAIN_PAGE_TEXT("LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD " +
+            "TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD " +
+            "EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN " +
+            "REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
+
+    final String name;
+
+    MainPageData(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}

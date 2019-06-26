@@ -48,6 +48,16 @@
                 <suite.xml>src/test/resources/testEpamGithubWebPageHW2.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>testEpamGithubWebPageHW3</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/testEpamGithubWebPageHW3.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
@@ -57,6 +67,8 @@
         <calculator.version>1.0</calculator.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <selenium.java.version>3.141.59</selenium.java.version>
+        <bonagarcia.version>3.6.1</bonagarcia.version>
+        <selenide.version>5.2.4</selenide.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -80,6 +92,19 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${bonagarcia.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
 
     </dependencies>
@@ -109,6 +134,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
