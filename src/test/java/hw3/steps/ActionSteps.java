@@ -21,11 +21,15 @@ public class ActionSteps {
         differentElementsPage = new DifferentElementsPage(driver);
     }
 
+    // TODO Why do you hard-coded parameters here?
+    // Fixed
     public void loginToEpamGitHubIoTestSite(String login, String password) {
-        homePage.login("epam", "1234");
+        homePage.login(login, password);
     }
 
-    public void returnToTheOriginalWindowFromIframe() {
+    // TODO returnToTheOriginalWindowFromIFrame
+    // Fixed
+    public void returnToTheOriginalWindowFromIFrame() {
         driver.switchTo().defaultContent();
     }
 
@@ -41,20 +45,25 @@ public class ActionSteps {
         homePage.clickDifferentElementsHeaderDropdownMenuItem(menuItem);
     }
 
-    public void clickWaterCheckbox() {
-        differentElementsPage.clickWaterCheckbox();
+    // TODO It will be better if you send name of checkboxes as parameter
+    // Fixed
+    public void clickCheckbox(String element) {
+        differentElementsPage.clickCheckbox(element);
     }
 
-    public void clickWindCheckBox() {
-        differentElementsPage.clickWindCheckbox();
+    // TODO It will be better if you send name of checkboxes as parameter
+    // Fixed
+
+    // TODO It will be better if you send name of radio button as parameter
+    // Fixed
+    public void clickRadioButton(String element) {
+        differentElementsPage.clickRadioButton(element);
     }
 
-    public void clickSelenRadioButton() {
-        differentElementsPage.clickSelenRadioButton();
-    }
-
-    public void clickYellowColorType() {
-        differentElementsPage.clickYellowColorType();
+    // TODO It will be better if you send name of value in dropdown as parameter
+    // Fixed
+    public void clickColorType(String element) {
+        differentElementsPage.clickColorType(element);
     }
 
 }

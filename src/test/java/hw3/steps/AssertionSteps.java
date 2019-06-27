@@ -51,20 +51,26 @@ public class AssertionSteps{
                 Arrays.stream(UnderIconsText.values()).map(UnderIconsText::getName).toArray());
     }
 
-    public void checkingProperMainTextHeaderAndBody(String testHeder, String text) {
-        assertEquals(homePage.mainPageTextTitle(), testHeder);
+    public void checkingProperMainTextHeaderAndBody(String testHeader, String text) {
+        assertEquals(homePage.mainPageTextTitle(), testHeader);
         assertEquals(homePage.mainPageText(), text);
     }
 
-    public void iframeIsDisplayed() {
+    // TODO iFrameIsDisplayed
+    // Fixed
+    public void iFrameIsDisplayed() {
         assertTrue(driver.findElement(By.id("iframe")).isDisplayed());
     }
 
-    public void checkingEpamLogoInIframeIsDisplayed() {
+    // TODO checkEpamLogoInIFrameIsDisplayed
+    // Fixed
+    public void checkEpamLogoInIFrameIsDisplayed() {
         assertTrue(driver.switchTo().frame(0).findElement(By.id("epam_logo")).isDisplayed());
     }
 
-    public void checkingProperSubHeaderText(String subHeaderText) {
+    // TODO checkProperSubHeaderText
+    // Fixed
+    public void checkProperSubHeaderText(String subHeaderText) {
         assertEquals(homePage.subHeaderText(), subHeaderText);
     }
 
@@ -76,7 +82,9 @@ public class AssertionSteps{
         assertTrue(driver.findElement(By.name("navigation-sidebar")).isDisplayed());
     }
 
-    public void checkFootesIsExist() {
+    // TODO checkFooterExist
+    // Fixed
+    public void checkFooterExist() {
         assertTrue(driver.findElement(By.cssSelector(".footer-bg")).isDisplayed());
     }
 
@@ -89,14 +97,16 @@ public class AssertionSteps{
     public void checkLeftSideServiceMenuItems() {
         List<String> enumMenuItemsList = Stream.of(ServiceMenuDropdownItems.values())
                 .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
-        assertTrue(homePage.leftSideServiceDropwounMenuItems().containsAll(enumMenuItemsList));
+        assertTrue(homePage.leftSideServiceDropdownMenuItems().containsAll(enumMenuItemsList));
     }
 
     public void checkAmountOfCheckboxes() {
         assertEquals(differentElementsPage.checkboxesAmount(), 4);
     }
 
-    public void checkAmountOfRadoiButtons() {
+    // TODO checkAmountOfRadioButtons
+    // Fixed
+    public void checkAmountOfRadioButtons() {
         assertEquals(differentElementsPage.radioButtonsAmount(), 4);
     }
 

@@ -1,5 +1,6 @@
 package hw3.voids;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,17 +28,17 @@ public class DifferentElementsPage extends BasePage {
     @FindBy(xpath = "//input[@value = 'Button']")
     private WebElement button;
 
-    @FindBy(xpath = "//label[contains(string(), 'Water')]")
-    private WebElement waterCheckbox;
+    // TODO It will be better use List<WebElements> here instead of element
+    // Fixed
 
-    @FindBy(xpath = "//label[contains(string(), 'Wind')]")
-    private WebElement windCheckbox;
+    // TODO It will be better use List<WebElements> here instead of element
+    // Fixed
 
-    @FindBy(xpath = "//label[contains(string(), 'Selen')]")
-    private WebElement selenRadioButton;
+    // TODO It will be better use List<WebElements> here instead of element
+    // Fixed
 
-    @FindBy(xpath = "//option[contains(text(), 'Yellow')]")
-    private WebElement yellowColorType;
+    // TODO It will be better use List<WebElements> here instead of element
+    // Fixed
 
     public int checkboxesAmount() {
         return checkboxes.size();
@@ -59,19 +60,15 @@ public class DifferentElementsPage extends BasePage {
         return button.isDisplayed();
     }
 
-    public void clickWaterCheckbox() {
-        waterCheckbox.click();
+    public void clickCheckbox(String element) {
+        driver.findElement(By.xpath("//label[contains(string(), '" + element + "')]")).click();
     }
 
-    public void clickWindCheckbox() {
-        windCheckbox.click();
+    public void clickRadioButton(String element) {
+        driver.findElement(By.xpath("//label[contains(string(), '" + element +"')]")).click();
     }
 
-    public void clickSelenRadioButton() {
-        selenRadioButton.click();
-    }
-
-    public void clickYellowColorType() {
-        yellowColorType.click();
+    public void clickColorType(String element) {
+        driver.findElement(By.xpath("//option[contains(text(), '" + element + "')]")).click();
     }
 }

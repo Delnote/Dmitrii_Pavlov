@@ -32,8 +32,12 @@ public class Exercise02 extends BaseTest {
         // 2. Assert Browser title
         assertionSteps.webPageTitleCheck(HOME_PAGE.getName());
         // 3. Perform login
-        actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password)"));
+        // TODO It could be extracted to User class :)
+        // But user class we did only on 4th lecture
+        actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
         // 4. Assert User name in the left-top side of screen that user is loggined
+        // TODO It could be extracted to User class :)
+        // But user class we did only on 4th lecture
         assertionSteps.checkingValidAccountName(userInfo.getProperty("user.data"));
         // 5. Click on "Service"  subcategory in the header and check that drop down contains options
         actionSteps.clickHeaderServiceButton(HeaderMenu.SERVICE);
@@ -48,7 +52,7 @@ public class Exercise02 extends BaseTest {
         // assert checkboxes
         assertionSteps.checkAmountOfCheckboxes();
         // assert radio buttons
-        assertionSteps.checkAmountOfRadoiButtons();
+        assertionSteps.checkAmountOfRadioButtons();
         // assert dropdown colors
         assertionSteps.checkColorsDropdownExists();
         // buttons
@@ -59,22 +63,22 @@ public class Exercise02 extends BaseTest {
         // 10. Assert that there is Left Section
         assertionSteps.checkNavigationSideBar();
         // 11. Select checkboxes
-        actionSteps.clickWaterCheckbox();
-        actionSteps.clickWindCheckBox();
+        actionSteps.clickCheckbox(WATER.getName());
+        actionSteps.clickCheckbox(WIND.getName());
         // 12. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
         assertionSteps.checkWeatherLog(WATER.getName(), true);
         assertionSteps.checkWeatherLog(WIND.getName(), true);
         // 13. Select radio Selen
-        actionSteps.clickSelenRadioButton();
+        actionSteps.clickRadioButton(SELEN.getName());
         // 14. Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
         assertionSteps.checkLog(METAL.getName(), SELEN.getName());
         // 15. Select in dropdown
-        actionSteps.clickYellowColorType();
+        actionSteps.clickColorType(YELLOW.getName());
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
         assertionSteps.checkLog(COLORS.getName(), YELLOW.getName());
         // 17. Unselect and assert checkboxes
-        actionSteps.clickWaterCheckbox();
-        actionSteps.clickWindCheckBox();
+        actionSteps.clickCheckbox(WIND.getName());
+        actionSteps.clickCheckbox(WATER.getName());
         // 18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
         assertionSteps.checkWeatherLog(WATER.getName(), false);
         assertionSteps.checkWeatherLog(WIND.getName(), false);

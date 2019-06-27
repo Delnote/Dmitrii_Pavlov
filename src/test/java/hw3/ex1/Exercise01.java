@@ -1,8 +1,8 @@
 package hw3.ex1;
 
+import hw3.base.BaseTest;
 import hw3.steps.ActionSteps;
 import hw3.steps.AssertionSteps;
-import hw3.base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -27,8 +27,12 @@ public class Exercise01 extends BaseTest {
         // 2. Assert Browser title
         assertionSteps.webPageTitleCheck(HOME_PAGE.getName());
         // 3. Perform login
-        actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password)"));
+        // TODO It could be extracted to User class :)
+        // But user class we did only on 4th lecture
+        actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
         // 4. Assert User name in the left-top side of screen that user is loggined
+        // TODO It could be extracted to User class :)
+        // But user class we did only on 4th lecture
         assertionSteps.checkingValidAccountName(userInfo.getProperty("user.data"));
         // 5. Assert Browser title
         assertionSteps.webPageTitleCheck(HOME_PAGE.getName());
@@ -41,18 +45,18 @@ public class Exercise01 extends BaseTest {
         // 9. Assert a text of the main headers
         assertionSteps.checkingProperMainTextHeaderAndBody(MAIN_PAGE_TEXT_HEADER.getName(), MAIN_PAGE_TEXT.getName());
         // 10. Assert that there is the iframe in the center of page
-        assertionSteps.iframeIsDisplayed();
+        assertionSteps.iFrameIsDisplayed();
         // 11. Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-        assertionSteps.checkingEpamLogoInIframeIsDisplayed();
+        assertionSteps.checkEpamLogoInIFrameIsDisplayed();
         // 12. Switch to original window back
-        actionSteps.returnToTheOriginalWindowFromIframe();
+        actionSteps.returnToTheOriginalWindowFromIFrame();
         // 13. Assert a text of the sub header
-        assertionSteps.checkingProperSubHeaderText(SUB_HEADER_TEXT.getName());
+        assertionSteps.checkProperSubHeaderText(SUB_HEADER_TEXT.getName());
         // 14. Assert that JDI GITHUB is a link and has a proper URL
         assertionSteps.checkingProperLinkText("https://github.com/epam/JDI");
         // 15. Assert that there is Left Section
         assertionSteps.checkLeftSectionIsDisplayed();
         // 16. Assert that there is Footer
-        assertionSteps.checkFootesIsExist();
+        assertionSteps.checkFooterExist();
     }
 }
