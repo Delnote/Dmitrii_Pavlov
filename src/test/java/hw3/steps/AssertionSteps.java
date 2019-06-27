@@ -51,23 +51,26 @@ public class AssertionSteps{
                 Arrays.stream(UnderIconsText.values()).map(UnderIconsText::getName).toArray());
     }
 
-    public void checkingProperMainTextHeaderAndBody(String testHeder, String text) {
-        assertEquals(homePage.mainPageTextTitle(), testHeder);
+    public void checkingProperMainTextHeaderAndBody(String testHeader, String text) {
+        assertEquals(homePage.mainPageTextTitle(), testHeader);
         assertEquals(homePage.mainPageText(), text);
     }
 
     // TODO iFrameIsDisplayed
-    public void iframeIsDisplayed() {
+    // Fixed
+    public void iFrameIsDisplayed() {
         assertTrue(driver.findElement(By.id("iframe")).isDisplayed());
     }
 
     // TODO checkEpamLogoInIFrameIsDisplayed
-    public void checkingEpamLogoInIframeIsDisplayed() {
+    // Fixed
+    public void checkEpamLogoInIFrameIsDisplayed() {
         assertTrue(driver.switchTo().frame(0).findElement(By.id("epam_logo")).isDisplayed());
     }
 
     // TODO checkProperSubHeaderText
-    public void checkingProperSubHeaderText(String subHeaderText) {
+    // Fixed
+    public void checkProperSubHeaderText(String subHeaderText) {
         assertEquals(homePage.subHeaderText(), subHeaderText);
     }
 
@@ -80,7 +83,8 @@ public class AssertionSteps{
     }
 
     // TODO checkFooterExist
-    public void checkFootesIsExist() {
+    // Fixed
+    public void checkFooterExist() {
         assertTrue(driver.findElement(By.cssSelector(".footer-bg")).isDisplayed());
     }
 
@@ -93,7 +97,7 @@ public class AssertionSteps{
     public void checkLeftSideServiceMenuItems() {
         List<String> enumMenuItemsList = Stream.of(ServiceMenuDropdownItems.values())
                 .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
-        assertTrue(homePage.leftSideServiceDropwounMenuItems().containsAll(enumMenuItemsList));
+        assertTrue(homePage.leftSideServiceDropdownMenuItems().containsAll(enumMenuItemsList));
     }
 
     public void checkAmountOfCheckboxes() {
@@ -101,7 +105,8 @@ public class AssertionSteps{
     }
 
     // TODO checkAmountOfRadioButtons
-    public void checkAmountOfRadoiButtons() {
+    // Fixed
+    public void checkAmountOfRadioButtons() {
         assertEquals(differentElementsPage.radioButtonsAmount(), 4);
     }
 

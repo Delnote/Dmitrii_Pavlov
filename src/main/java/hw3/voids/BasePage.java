@@ -98,7 +98,8 @@ public abstract class BasePage {
     }
 
     // TODO leftSideServiceDropdownMenuItems
-    public List<String> leftSideServiceDropwounMenuItems() {
+    // Fixed
+    public List<String> leftSideServiceDropdownMenuItems() {
         return getListStringFromListWebElements(leftSideServiceDropdownMenuItems);
     }
 
