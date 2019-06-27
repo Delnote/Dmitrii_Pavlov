@@ -27,15 +27,19 @@ public class DifferentElementsPage extends BasePage {
     @FindBy(xpath = "//input[@value = 'Button']")
     private WebElement button;
 
+    // TODO It will be better use List<WebElements> here instead of element
     @FindBy(xpath = "//label[contains(string(), 'Water')]")
     private WebElement waterCheckbox;
 
+    // TODO It will be better use List<WebElements> here instead of element
     @FindBy(xpath = "//label[contains(string(), 'Wind')]")
     private WebElement windCheckbox;
 
+    // TODO It will be better use List<WebElements> here instead of element
     @FindBy(xpath = "//label[contains(string(), 'Selen')]")
     private WebElement selenRadioButton;
 
+    // TODO It will be better use List<WebElements> here instead of element
     @FindBy(xpath = "//option[contains(text(), 'Yellow')]")
     private WebElement yellowColorType;
 
