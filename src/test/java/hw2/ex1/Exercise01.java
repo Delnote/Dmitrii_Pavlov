@@ -17,9 +17,6 @@ public class Exercise01 extends BaseTest {
     @Test (groups = "All")
     public void testEpamGithubSiteOptions() {
 
-        // TODO Method name is unclear
-        // Fixed
-
         loginEpamGithubPage();
 
         assertEquals(creatingListOfItemsByPath(headerMenuPath).size(), 4);
