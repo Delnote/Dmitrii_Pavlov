@@ -32,12 +32,8 @@ public class Exercise02 extends BaseTest {
         // 2. Assert Browser title
         assertionSteps.webPageTitleCheck(HOME_PAGE.getName());
         // 3. Perform login
-        // TODO It could be extracted to User class :)
-        // But user class we did only on 4th lecture
         actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
         // 4. Assert User name in the left-top side of screen that user is loggined
-        // TODO It could be extracted to User class :)
-        // But user class we did only on 4th lecture
         assertionSteps.checkingValidAccountName(userInfo.getProperty("user.data"));
         // 5. Click on "Service"  subcategory in the header and check that drop down contains options
         actionSteps.clickHeaderServiceButton(HeaderMenu.SERVICE);

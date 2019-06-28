@@ -28,18 +28,6 @@ public class DifferentElementsPage extends BasePage {
     @FindBy(xpath = "//input[@value = 'Button']")
     private WebElement button;
 
-    // TODO It will be better use List<WebElements> here instead of element
-    // Fixed
-
-    // TODO It will be better use List<WebElements> here instead of element
-    // Fixed
-
-    // TODO It will be better use List<WebElements> here instead of element
-    // Fixed
-
-    // TODO It will be better use List<WebElements> here instead of element
-    // Fixed
-
     public int checkboxesAmount() {
         return checkboxes.size();
     }
