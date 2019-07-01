@@ -80,6 +80,9 @@
         <bonagarcia.version>3.6.1</bonagarcia.version>
         <selenide.version>5.2.4</selenide.version>
         <lombok.version>1.18.8</lombok.version>
+        <allure.version>2.12.1</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <jackson.version>2.9.9</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -123,6 +126,24 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
     </dependencies>
