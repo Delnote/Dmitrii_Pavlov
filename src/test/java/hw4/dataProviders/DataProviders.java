@@ -22,7 +22,6 @@ public class DataProviders {
         TestDataBuilder testData4 = TestDataBuilder.builder().Odd("5").Even("6").Elements(Arrays.asList(WATER.getName())).Colors(GREEN.getName()).Metals(SELEN.getName()).Vegetables(Arrays.asList(ONION.getName(), TOMATO.getName(), VEGETABLES.getName(), CUCUMBER.getName())).build();
         TestDataBuilder testData5 = TestDataBuilder.builder().Elements(Arrays.asList(FIRE.getName())).Colors(BLUE.getName()).Vegetables(Arrays.asList(CUCUMBER.getName(), TOMATO.getName(), VEGETABLES.getName())).build();
 
-
         return new Object[][]{
                 {testData1},
                 {testData2},
