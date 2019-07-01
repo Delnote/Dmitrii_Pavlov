@@ -97,13 +97,9 @@ public abstract class BasePage {
         driver.findElement(By.linkText(menuItem.getName())).click();
     }
 
-    // TODO leftSideServiceDropdownMenuItems
-    // Fixed
     public List<String> leftSideServiceDropdownMenuItems() {
         return getListStringFromListWebElements(leftSideServiceDropdownMenuItems);
     }
-
-
 
     public List<String> getListStringFromListWebElements(List<WebElement> list) {
         List<String> actualElements = new ArrayList<>();

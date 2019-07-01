@@ -56,20 +56,14 @@ public class AssertionSteps{
         assertEquals(homePage.mainPageText(), text);
     }
 
-    // TODO iFrameIsDisplayed
-    // Fixed
     public void iFrameIsDisplayed() {
         assertTrue(driver.findElement(By.id("iframe")).isDisplayed());
     }
 
-    // TODO checkEpamLogoInIFrameIsDisplayed
-    // Fixed
     public void checkEpamLogoInIFrameIsDisplayed() {
         assertTrue(driver.switchTo().frame(0).findElement(By.id("epam_logo")).isDisplayed());
     }
 
-    // TODO checkProperSubHeaderText
-    // Fixed
     public void checkProperSubHeaderText(String subHeaderText) {
         assertEquals(homePage.subHeaderText(), subHeaderText);
     }
@@ -82,8 +76,6 @@ public class AssertionSteps{
         assertTrue(driver.findElement(By.name("navigation-sidebar")).isDisplayed());
     }
 
-    // TODO checkFooterExist
-    // Fixed
     public void checkFooterExist() {
         assertTrue(driver.findElement(By.cssSelector(".footer-bg")).isDisplayed());
     }
@@ -104,8 +96,6 @@ public class AssertionSteps{
         assertEquals(differentElementsPage.checkboxesAmount(), 4);
     }
 
-    // TODO checkAmountOfRadioButtons
-    // Fixed
     public void checkAmountOfRadioButtons() {
         assertEquals(differentElementsPage.radioButtonsAmount(), 4);
     }

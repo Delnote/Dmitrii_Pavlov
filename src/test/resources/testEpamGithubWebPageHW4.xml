@@ -9,8 +9,8 @@
             </run>
         </groups>
         <classes>
-            <class name="hw3.ex1.Exercise01"/>
-            <class name="hw3.ex2.Exercise02"/>
+            <class name="hw4.ex1.Exercise01"/>
+            <class name="hw4.ex2.Exercise02"/>
         </classes>
     </test>
 </suite>
