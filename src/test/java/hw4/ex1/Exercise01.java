@@ -24,7 +24,7 @@ public class Exercise01{
         HomePage homePage = open("https://epam.github.io/JDI", HomePage.class);
         MetalsAndColorsPage metalsAndColorsPage = new MetalsAndColorsPage();
         // 2. Assert Browser title
-        homePage.checkTitle(HOME_PAGE.getName());
+        homePage.checkTitle().shouldHave(attribute("text", HOME_PAGE.getName()));
         // 3. Perform login
         homePage.login(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
         // 4. Assert User name in the left-top side of screen that user is loggined
