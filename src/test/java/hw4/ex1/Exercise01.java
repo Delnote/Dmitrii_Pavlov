@@ -31,10 +31,12 @@ public class Exercise01{
         homePage.userName().shouldHave(text(userInfo.getProperty("user.data")));
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         homePage.clickHeaderMenuServiceOption();
+        // TODO Looks like a bit tricky
         homePage.headerMenuServiceOption()
                 .shouldHave(CollectionCondition.texts(homePage.enumMenuItemsList));
         // 6. Click on Service subcategory in the left section and check that drop down contains options
         homePage.clickLeftSideServiceDropdownMenuItem();
+        // TODO Looks like a bit tricky
         homePage.leftSideMenuServiceOption()
                 .shouldHave(CollectionCondition.textsInAnyOrder(homePage.enumMenuItemsList));
         // 7. Open through the header menu Service -> Table with pages

@@ -10,6 +10,7 @@ import java.util.List;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
+// TODO Please follow structure of the class for Java Code Convention
 public class MetalsAndColorsPage {
 
     public MetalsAndColorsPage() {
@@ -44,6 +45,7 @@ public class MetalsAndColorsPage {
         searchField.sendKeys(text);
     }
 
+    // TODO Is this method used?
     public ElementsCollection table() {
         return table;
     }

@@ -11,6 +11,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class TestDataBuilder {
 
+    // TODO Java code convention for the class fields name
     private String Odd;
     private String Even;
     private List<String> Elements;
@@ -18,6 +19,7 @@ public class TestDataBuilder {
     private String Metals;
     private List<String> Vegetables;
 
+    // TODO Is this getter required here?
     public String getOdd() {
         return Odd;
     }
