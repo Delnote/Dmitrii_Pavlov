@@ -101,8 +101,6 @@ public abstract class BasePage {
         return getListStringFromListWebElements(leftSideServiceDropdownMenuItems);
     }
 
-
-
     public List<String> getListStringFromListWebElements(List<WebElement> list) {
         List<String> actualElements = new ArrayList<>();
         for (WebElement item : list) {

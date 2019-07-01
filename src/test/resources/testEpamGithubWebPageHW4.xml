@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="EpamWebPageTesting">
+    <test name="TestExercise1">
+        <groups>
+            <run>
+                <include name="All"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="hw4.ex1.Exercise01"/>
+            <class name="hw4.ex2.Exercise02"/>
+        </classes>
+    </test>
+</suite>
