@@ -33,8 +33,8 @@ public class HomePage {
     @FindBy(name = "navigation-sidebar")
     private SelenideElement navigationSideBar;
 
-    public void checkTitle(String title) {
-        $(String.valueOf(title().equalsIgnoreCase(title)));
+    public SelenideElement checkTitle() {
+        return $("title");
     }
 
     public SelenideElement navigationSideBar() {

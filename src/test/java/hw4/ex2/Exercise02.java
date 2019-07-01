@@ -1,8 +1,8 @@
 package hw4.ex2;
 
 import hw3.utils.FileUtils;
-import hw4.MetalsAndColorsPage;
 import hw4.HomePage;
+import hw4.MetalsAndColorsPage;
 import hw4.builder.TestDataBuilder;
 import hw4.dataProviders.DataProviders;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.Properties;
 
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.open;
 import static hw3.enums.HeaderMenu.METALS_AND_COLORS;
@@ -31,7 +32,7 @@ public class Exercise02 {
         HomePage homePage = open("https://epam.github.io/JDI", HomePage.class);
         MetalsAndColorsPage metalsAndColorsPage = new MetalsAndColorsPage();
         // 2. Assert Browser title
-        homePage.checkTitle(HOME_PAGE.getName());
+        homePage.checkTitle().shouldHave(attribute("text", HOME_PAGE.getName()));
         // 3. Perform login
         homePage.login(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
         // 4. Click on the link on the Header section
