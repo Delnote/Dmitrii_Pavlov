@@ -83,8 +83,8 @@ public class MetalsAndColorsPage {
 
         // check vegetables not null
         if (vegetables != null) {
-            $(By.xpath("//button[@class='btn btn-default dropdown-toggle']/span")).click();
             for (String element : vegetables) {
+                $(By.xpath("//button[@class='btn btn-default dropdown-toggle']/span")).click();
                 $(By.xpath("//label[contains(text(), '" + element + "')]")).click();
             }
         }
