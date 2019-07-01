@@ -116,14 +116,9 @@ public class MetalsAndColorsPage {
                         .shouldHave(text(element));
             }
         }
-//        if (vegetables != null) {
             for (String element : vegetables) {
                 $(By.xpath("//ul[@class='panel-body-list results']/li[contains (text(), 'Vegetables')]"))
                         .shouldHave(text(element));
             }
-//        } else {
-//            $(By.xpath("//ul[@class='panel-body-list results']/li[contains (text(), 'Vegetables')]"))
-//                    .shouldHave(text($(By.xpath("//button[@class='btn btn-default dropdown-toggle']")).getText()));
-//        }
     }
 }
