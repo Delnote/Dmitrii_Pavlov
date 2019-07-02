@@ -48,9 +48,6 @@ public class MetalsAndColorsPage {
         searchField.sendKeys(text);
     }
 
-    // TODO Is this method used?
-    // No, fixed
-
     public void checkTableRows(String text) {
         for (SelenideElement element : table) {
             element.shouldHave(text(text));
