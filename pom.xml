@@ -58,7 +58,7 @@
                 <suite.xml>src/test/resources/testEpamGithubWebPageHW3.xml</suite.xml>
             </properties>
         </profile>
-
+        
         <profile>
             <id>testEpamGithubWebPageHW4</id>
             <activation>
