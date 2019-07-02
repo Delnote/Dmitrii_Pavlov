@@ -12,11 +12,7 @@ import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.*;
 
-// TODO Please follow structure of the class for Java Code Convention
 public class HomePage {
-
-    // TODO Please follow structure of the class for Java Code Convention
-    // Fixed
 
     @FindBy(id = "user-icon")
     private SelenideElement userIcon;
@@ -44,10 +40,6 @@ public class HomePage {
     public SelenideElement navigationSideBar() {
         return navigationSideBar;
     }
-
-    // TODO Why do you decide store this properties inside of the HomePage PO
-    // TODO I assume, that it will be better invoke this set of test data in the test
-    // Fixed
 
     public void login(String userName, String password) {
         $("#user-icon").click();
