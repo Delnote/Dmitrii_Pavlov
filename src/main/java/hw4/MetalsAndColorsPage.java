@@ -10,6 +10,7 @@ import java.util.List;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
+// TODO Please follow structure of the class for Java Code Convention
 public class MetalsAndColorsPage {
 
     // TODO Please follow structure of the class for Java Code Convention

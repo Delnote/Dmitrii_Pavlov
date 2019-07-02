@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.*;
 
+// TODO Please follow structure of the class for Java Code Convention
 public class HomePage {
 
     // TODO Please follow structure of the class for Java Code Convention
