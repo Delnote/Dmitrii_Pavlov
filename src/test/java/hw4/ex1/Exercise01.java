@@ -1,12 +1,16 @@
 package hw4.ex1;
 
 import com.codeborne.selenide.CollectionCondition;
+import hw3.enums.ServiceMenuDropdownItems;
 import hw3.utils.FileUtils;
 import hw4.HomePage;
 import hw4.MetalsAndColorsPage;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.close;
@@ -20,6 +24,10 @@ public class Exercise01{
 
     @Test (groups = "All")
     public void testEpamGithubSiteOptions() {
+
+        List<String> dropdownMenuItemsList = Arrays.stream(ServiceMenuDropdownItems.values())
+                .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
+
         // 1. Open test site by URL
         HomePage homePage = open("https://epam.github.io/JDI", HomePage.class);
         MetalsAndColorsPage metalsAndColorsPage = new MetalsAndColorsPage();
@@ -31,12 +39,18 @@ public class Exercise01{
         homePage.userName().shouldHave(text(userInfo.getProperty("user.data")));
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         homePage.clickHeaderMenuServiceOption();
-        homePage.headerMenuServiceOption()
-                .shouldHave(CollectionCondition.texts(homePage.enumMenuItemsList));
+        // TODO Looks like a bit tricky
+        // Fixed
+        homePage.headerServiceDropdownMenuItems()
+                .shouldHave(CollectionCondition
+                        .textsInAnyOrder(dropdownMenuItemsList));
         // 6. Click on Service subcategory in the left section and check that drop down contains options
         homePage.clickLeftSideServiceDropdownMenuItem();
-        homePage.leftSideMenuServiceOption()
-                .shouldHave(CollectionCondition.textsInAnyOrder(homePage.enumMenuItemsList));
+        // TODO Looks like a bit tricky
+        // Fixed
+        homePage.leftSideServiceDropdownMenuItems()
+                .shouldHave(CollectionCondition
+                        .textsInAnyOrder(dropdownMenuItemsList));
         // 7. Open through the header menu Service -> Table with pages
         homePage.clickHeaderMenuServiceOption();
         homePage.clickHeaderMenuItem(TABLE_WITH_PAGES.getName());

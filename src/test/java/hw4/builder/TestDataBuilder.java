@@ -11,14 +11,16 @@ import java.util.List;
 @EqualsAndHashCode
 public class TestDataBuilder {
 
-    private String Odd;
-    private String Even;
-    private List<String> Elements;
-    private String Colors;
-    private String Metals;
-    private List<String> Vegetables;
+    // TODO Java code convention for the class fields name
+    //Fixed
+    private String odd;
+    private String even;
+    private List<String> elements;
+    private String colors;
+    private String metals;
+    private List<String> vegetables;
 
-    public String getOdd() {
-        return Odd;
-    }
+    // TODO Is this getter required here?
+    // No, forgot to remove it
+    // Fixed
 }

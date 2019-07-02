@@ -12,9 +12,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MetalsAndColorsPage {
 
-    public MetalsAndColorsPage() {
-        page(this);
-    }
+    // TODO Please follow structure of the class for Java Code Convention
+    // Fixed
 
     @FindBy(name = "table-with-pages_length")
     private SelenideElement selectedTableLengthOption;
@@ -27,6 +26,10 @@ public class MetalsAndColorsPage {
 
     @FindBy(xpath = "//table[@ui='d-table']/tbody/tr")
     private ElementsCollection table;
+
+    public MetalsAndColorsPage() {
+        page(this);
+    }
 
     public SelenideElement logDesk() {
         return logDesk;
@@ -44,9 +47,8 @@ public class MetalsAndColorsPage {
         searchField.sendKeys(text);
     }
 
-    public ElementsCollection table() {
-        return table;
-    }
+    // TODO Is this method used?
+    // No, fixed
 
     public void checkTableRows(String text) {
         for (SelenideElement element : table) {
@@ -54,12 +56,17 @@ public class MetalsAndColorsPage {
         }
     }
 
-    public void fillFormAndCheckData(String odd, String even, String metals, String colors, List<String> elements, List<String> vegetables) {
+    public void fillFormAndCheckData(String odd, String even,
+                                     String metals, String colors,
+                                     List<String> elements,
+                                     List<String> vegetables) {
 
         // check add and even not null
         if (odd != null && even != null) {
-            $(By.xpath("//input[@name='custom_radio_odd']/..//label[contains (text(), '" + odd + "')]")).click();
-            $(By.xpath("//input[@name='custom_radio_even']/..//label[contains (text(), '" + even + "')]")).click();
+            $(By.xpath("//input[@name='custom_radio_odd']/..//label[contains (text(), " +
+                    "'" + odd + "')]")).click();
+            $(By.xpath("//input[@name='custom_radio_even']/..//label[contains (text(), " +
+                    "'" + even + "')]")).click();
         }
 
         // check metals  not null
