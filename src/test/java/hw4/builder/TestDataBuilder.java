@@ -12,15 +12,15 @@ import java.util.List;
 public class TestDataBuilder {
 
     // TODO Java code convention for the class fields name
-    private String Odd;
-    private String Even;
-    private List<String> Elements;
-    private String Colors;
-    private String Metals;
-    private List<String> Vegetables;
+    //Fixed
+    private String odd;
+    private String even;
+    private List<String> elements;
+    private String colors;
+    private String metals;
+    private List<String> vegetables;
 
     // TODO Is this getter required here?
-    public String getOdd() {
-        return Odd;
-    }
+    // No, forgot to remove it
+    // Fixed
 }

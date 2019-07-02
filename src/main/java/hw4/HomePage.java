@@ -15,9 +15,8 @@ import static com.codeborne.selenide.Selenide.*;
 // TODO Please follow structure of the class for Java Code Convention
 public class HomePage {
 
-    public HomePage() {
-        page(this);
-    }
+    // TODO Please follow structure of the class for Java Code Convention
+    // Fixed
 
     @FindBy(id = "user-icon")
     private SelenideElement userIcon;
@@ -34,6 +33,10 @@ public class HomePage {
     @FindBy(name = "navigation-sidebar")
     private SelenideElement navigationSideBar;
 
+    public HomePage() {
+        page(this);
+    }
+
     public SelenideElement checkTitle() {
         return $("title");
     }
@@ -44,8 +47,7 @@ public class HomePage {
 
     // TODO Why do you decide store this properties inside of the HomePage PO
     // TODO I assume, that it will be better invoke this set of test data in the test
-    public List<String> enumMenuItemsList = Arrays.stream(ServiceMenuDropdownItems.values())
-            .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
+    // Fixed
 
     public void login(String userName, String password) {
         $("#user-icon").click();
@@ -66,11 +68,11 @@ public class HomePage {
         $(By.xpath("//li[@class='menu-title' and contains(string(), 'Service')]")).click();
     }
 
-    public ElementsCollection headerMenuServiceOption() {
+    public ElementsCollection headerServiceDropdownMenuItems() {
         return $$(By.xpath("//ul[@class='dropdown-menu']//a"));
     }
 
-    public ElementsCollection leftSideMenuServiceOption() {
+    public ElementsCollection leftSideServiceDropdownMenuItems() {
         return $$(By.xpath("//li[contains(@class, 'menu-title') and contains(@index, '3')]/ul/li"));
     }
 
