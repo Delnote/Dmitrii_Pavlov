@@ -10,11 +10,7 @@ import java.util.List;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-// TODO Please follow structure of the class for Java Code Convention
 public class MetalsAndColorsPage {
-
-    // TODO Please follow structure of the class for Java Code Convention
-    // Fixed
 
     @FindBy(name = "table-with-pages_length")
     private SelenideElement selectedTableLengthOption;
@@ -47,9 +43,6 @@ public class MetalsAndColorsPage {
     public void searchField(String text) {
         searchField.sendKeys(text);
     }
-
-    // TODO Is this method used?
-    // No, fixed
 
     public void checkTableRows(String text) {
         for (SelenideElement element : table) {
