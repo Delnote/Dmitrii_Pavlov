@@ -17,5 +17,4 @@ public class TestDataBuilder {
     private String colors;
     private String metals;
     private List<String> vegetables;
-
 }

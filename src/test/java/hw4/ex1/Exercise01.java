@@ -43,12 +43,14 @@ public class Exercise01{
 
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         homePage.clickHeaderMenuServiceOption();
+
         homePage.headerServiceDropdownMenuItems()
                 .shouldHave(CollectionCondition
                         .textsInAnyOrder(dropdownMenuItemsList));
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
         homePage.clickLeftSideServiceDropdownMenuItem();
+
         homePage.leftSideServiceDropdownMenuItems()
                 .shouldHave(CollectionCondition
                         .textsInAnyOrder(dropdownMenuItemsList));

@@ -2,13 +2,8 @@ package hw4;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import hw3.enums.ServiceMenuDropdownItems;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.*;
 
