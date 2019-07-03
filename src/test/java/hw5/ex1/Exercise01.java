@@ -57,7 +57,5 @@ public class Exercise01 extends BaseTest {
         assertionSteps.checkLeftSectionIsDisplayed();
         // 16. Assert that there is Footer
         assertionSteps.checkFooterExist();
-        // 17. Filed test
-        assertionSteps.checkingValidAccountName(userInfo.getProperty("xxx"));
     }
 }
