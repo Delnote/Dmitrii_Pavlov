@@ -37,6 +37,12 @@ public class AssertionSteps{
         assertEquals(driver.getTitle(), pageTitle);
     }
 
+
+    @Step("Failed test step with user name: '{0}'")
+    public void filedTestStepWithUserName() {
+        assertEquals(homePage.accountUserName(), "PITER CHAILOVSKIII");
+    }
+
     @Step("Check proper test user name: '{0}'")
     public void checkingValidAccountName(String accountName) {
         assertEquals(homePage.accountUserName(), accountName);
