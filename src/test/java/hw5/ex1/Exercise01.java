@@ -1,8 +1,8 @@
 package hw5.ex1;
 
 import hw3.base.BaseTest;
-import hw3.steps.ActionSteps;
-import hw3.steps.AssertionSteps;
+import hw5.steps.ActionSteps;
+import hw5.steps.AssertionSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
