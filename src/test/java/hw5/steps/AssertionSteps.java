@@ -3,6 +3,7 @@ package hw5.steps;
 import hw3.enums.HeaderMenu;
 import hw3.enums.ServiceMenuDropdownItems;
 import hw3.enums.UnderIconsText;
+import hw5.TestProvider;
 import hw5.voids.DifferentElementsPage;
 import hw5.voids.HomePage;
 import io.qameta.allure.Step;
@@ -26,16 +27,17 @@ public class AssertionSteps{
 
     public AssertionSteps(WebDriver driver) {
         this.driver = driver;
+        TestProvider.getInstanse().getDriver();
         homePage = new HomePage(driver);
         differentElementsPage = new DifferentElementsPage(driver);
     }
 
-    @Step("Verify page title")
+    @Step("Verify page title: '{0}'")
     public void webPageTitleCheck(String pageTitle) {
         assertEquals(driver.getTitle(), pageTitle);
     }
 
-    @Step("Check proper test user name")
+    @Step("Check proper test user name: '{0}'")
     public void checkingValidAccountName(String accountName) {
         assertEquals(homePage.accountUserName(), accountName);
     }
@@ -59,7 +61,7 @@ public class AssertionSteps{
                 Arrays.stream(UnderIconsText.values()).map(UnderIconsText::getName).toArray());
     }
 
-    @Step("Proper of main text and title")
+    @Step("Proper of main text and title: '{0}'")
     public void checkingProperMainTextHeaderAndBody(String testHeader, String text) {
         assertEquals(homePage.mainPageTextTitle(), testHeader);
         assertEquals(homePage.mainPageText(), text);
@@ -75,7 +77,7 @@ public class AssertionSteps{
         assertTrue(driver.switchTo().frame(0).findElement(By.id("epam_logo")).isDisplayed());
     }
 
-    @Step("Proper sub header text")
+    @Step("Proper sub header text: '{0}'")
     public void checkProperSubHeaderText(String subHeaderText) {
         assertEquals(homePage.subHeaderText(), subHeaderText);
     }

@@ -1,13 +1,16 @@
 package hw5.ex1;
 
 import hw3.base.BaseTest;
+import hw5.AllureAttachmentListener;
 import hw5.steps.ActionSteps;
 import hw5.steps.AssertionSteps;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static hw3.enums.MainPageData.*;
 
+@Listeners(AllureAttachmentListener.AllureAtachmentListener.class)
 public class Exercise01 extends BaseTest {
 
     private ActionSteps actionSteps;
