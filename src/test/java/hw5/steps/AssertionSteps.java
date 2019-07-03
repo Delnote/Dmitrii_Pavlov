@@ -39,7 +39,7 @@ public class AssertionSteps{
 
 
     @Step("Failed test step with user name: '{0}'")
-    public void filedTestStepWithUserName() {
+    public void failedTestStepWithUserName() {
         assertEquals(homePage.accountUserName(), "PITER CHAILOVSKIII");
     }
 

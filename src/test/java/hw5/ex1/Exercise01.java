@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static hw3.enums.MainPageData.*;
 
-@Listeners(AllureAttachmentListener.AllureAtachmentListener.class)
+@Listeners(AllureAttachmentListener.class)
 public class Exercise01 extends BaseTest {
 
     private ActionSteps actionSteps;
@@ -38,7 +38,7 @@ public class Exercise01 extends BaseTest {
         // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
         assertionSteps.checkingSizeAndProperHeaderMenuItemsNames();
         // 7. Assert that there are 4 images on the Index Page and they are displayed
-        assertionSteps.checkinigThatIconsExistsOnPage();
+        assertionSteps.checkingThatIconsExistsOnPage();
         // 8. Assert that there are 4 texts on the Index Page under icons and they have proper text
         assertionSteps.checkingExistingAndProperTextUnderIcons();
         // 9. Assert a text of the main headers
@@ -58,6 +58,6 @@ public class Exercise01 extends BaseTest {
         // 16. Assert that there is Footer
         assertionSteps.checkFooterExist();
         // 17. Filed test
-        assertionSteps.filedTestStepWithUserName();
+        assertionSteps.failedTestStepWithUserName();
     }
 }
