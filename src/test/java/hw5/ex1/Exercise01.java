@@ -58,4 +58,9 @@ public class Exercise01 extends BaseTest {
         // 16. Assert that there is Footer
         assertionSteps.checkFooterExist();
     }
+
+    @Test
+    public void simpleFailureTest() {
+        assertionSteps.checkingValidAccountName(userInfo.getProperty("user.data"));
+    }
 }
