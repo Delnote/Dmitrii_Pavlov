@@ -4,12 +4,16 @@ import hw3.base.BaseTest;
 import hw5.AllureAttachmentListener;
 import hw5.steps.ActionSteps;
 import hw5.steps.AssertionSteps;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static hw3.enums.MainPageData.*;
 
+@Feature("EPAM JDI site testing")
 @Listeners(AllureAttachmentListener.class)
 public class Exercise01 extends BaseTest {
 
@@ -25,6 +29,8 @@ public class Exercise01 extends BaseTest {
 
     }
 
+    @Story("Epam JDI positive site testing")
+    @Description("Copy of test 1 from HW3 to pass correctly")
     @Test (groups = "All")
     public void testEpamGithubSiteOptions() {
         // 2. Assert Browser title
@@ -59,6 +65,8 @@ public class Exercise01 extends BaseTest {
         assertionSteps.checkFooterExist();
     }
 
+    @Story("Epam JDI negative site testing")
+    @Description("Test to be failed to check negative Allure report with screenshots")
     @Test (groups = "All")
     public void simpleFailureTest() {
         // 2. Assert Browser title
