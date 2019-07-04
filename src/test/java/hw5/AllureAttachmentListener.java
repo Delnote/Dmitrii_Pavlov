@@ -14,7 +14,7 @@ import org.testng.TestListenerAdapter;
             byte[] array = {1};
             try {
                 return ((TakesScreenshot) TestProvider
-                        .getInstanse().getDriver())
+                        .getInstance().getDriver())
                         .getScreenshotAs(OutputType.BYTES);
             } catch (WebDriverException e) {
                 e.printStackTrace();

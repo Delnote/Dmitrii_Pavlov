@@ -27,7 +27,7 @@ public class AssertionSteps{
 
     public AssertionSteps(WebDriver driver) {
         this.driver = driver;
-        TestProvider.getInstanse().getDriver();
+        TestProvider.getInstance().setDriver(driver);
         homePage = new HomePage(driver);
         differentElementsPage = new DifferentElementsPage(driver);
     }

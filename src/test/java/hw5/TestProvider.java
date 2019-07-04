@@ -9,16 +9,16 @@ import org.openqa.selenium.WebDriver;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TestProvider {
 
-    private static TestProvider instanse;
+    private static TestProvider instance;
 
     @Getter
     @Setter
     private WebDriver driver;
 
-    public static TestProvider getInstanse() {
-        if (instanse == null) {
-            instanse = new TestProvider();
+    public static TestProvider getInstance() {
+        if (instance == null) {
+            instance = new TestProvider();
         }
-        return instanse;
+        return instance;
     }
 }
