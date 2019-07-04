@@ -59,8 +59,13 @@ public class Exercise01 extends BaseTest {
         assertionSteps.checkFooterExist();
     }
 
-    @Test
+    @Test (groups = "All")
     public void simpleFailureTest() {
-        assertionSteps.checkingValidAccountName(userInfo.getProperty("user.data"));
+        // 2. Assert Browser title
+        assertionSteps.webPageTitleCheck(HOME_PAGE.getName());
+        // 3. Perform login
+        actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
+        // 4. Assert User name in the left-top side of screen that user is loggined
+        assertionSteps.checkingValidAccountName(userInfo.getProperty("PITER CHIAILOVSKIIII"));
     }
 }
