@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static hw3.enums.MainPageData.*;
 
-//@Listeners(AllureAttachmentListener.class)
+@Listeners(AllureAttachmentListener.class)
 public class Exercise01 extends BaseTest {
 
     private ActionSteps actionSteps;
