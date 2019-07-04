@@ -3,11 +3,18 @@ package hw3.ex1;
 import hw3.base.BaseTest;
 import hw3.steps.ActionSteps;
 import hw3.steps.AssertionSteps;
+import hw5.AllureAttachmentListener;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static hw3.enums.MainPageData.*;
 
+@Feature("HW3 EX1 EPAM JDI site testing")
+@Listeners(AllureAttachmentListener.class)
 public class Exercise01 extends BaseTest {
 
     private ActionSteps actionSteps;
@@ -22,6 +29,8 @@ public class Exercise01 extends BaseTest {
 
     }
 
+    @Story("Epam JDI site testing")
+    @Description("HW3 ex1 to pass correctly")
     @Test (groups = "All")
     public void testEpamGithubSiteOptions() {
         // 2. Assert Browser title

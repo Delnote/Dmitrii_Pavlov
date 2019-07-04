@@ -6,13 +6,20 @@ import hw3.enums.ServiceMenuDropdownItems;
 import hw3.enums.LeftSideMenu;
 import hw3.steps.ActionSteps;
 import hw3.steps.AssertionSteps;
+import hw5.AllureAttachmentListener;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static hw3.enums.DifferentElementsPageData.*;
 import static hw3.enums.MainPageData.*;
 import static hw3.utils.FileUtils.readUserFromFile;
 
+@Feature("HW3 EX2 EPAM JDI site testing")
+@Listeners(AllureAttachmentListener.class)
 public class Exercise02 extends BaseTest {
 
     private ActionSteps actionSteps;
@@ -26,6 +33,8 @@ public class Exercise02 extends BaseTest {
         assertionSteps = new AssertionSteps(driver);
     }
 
+    @Story("Epam JDI site testing")
+    @Description("HW3 ex1 to pass correctly")
     @Test (groups = "All")
     public void testEpamGithubSiteOptions() {
 
@@ -78,7 +87,5 @@ public class Exercise02 extends BaseTest {
         // 18. Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
         assertionSteps.checkWeatherLog(WATER.getName(), false);
         assertionSteps.checkWeatherLog(WIND.getName(), false);
-
-        System.out.println(readUserFromFile("src/test/properties/user.properties"));
     }
 }

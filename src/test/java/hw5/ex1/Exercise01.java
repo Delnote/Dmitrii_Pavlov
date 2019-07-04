@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import static hw3.enums.MainPageData.*;
 
-@Feature("EPAM JDI site testing")
+@Feature("HW5 EX1 EPAM JDI site testing")
 @Listeners(AllureAttachmentListener.class)
 public class Exercise01 extends BaseTest {
 
