@@ -3,6 +3,7 @@ package hw3.steps;
 import hw3.enums.*;
 import hw3.voids.DifferentElementsPage;
 import hw3.voids.HomePage;
+import hw5.TestProvider;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class AssertionSteps{
 
     public AssertionSteps(WebDriver driver) {
         this.driver = driver;
+        TestProvider.getInstance().setDriver(driver);
         homePage = new HomePage(driver);
         differentElementsPage = new DifferentElementsPage(driver);
     }

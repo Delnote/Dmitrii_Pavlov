@@ -6,6 +6,7 @@ import hw3.enums.ServiceMenuDropdownItems;
 import hw3.enums.LeftSideMenu;
 import hw3.voids.DifferentElementsPage;
 import hw3.voids.HomePage;
+import hw5.TestProvider;
 import io.qameta.allure.Severity;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,7 @@ public class ActionSteps {
 
     public ActionSteps(WebDriver driver) {
         this.driver = driver;
+        TestProvider.getInstance().setDriver(driver);
         homePage = new HomePage(driver);
         differentElementsPage = new DifferentElementsPage(driver);
     }
