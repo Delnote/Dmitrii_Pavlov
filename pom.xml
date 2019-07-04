@@ -90,7 +90,7 @@
         <bonagarcia.version>3.6.1</bonagarcia.version>
         <selenide.version>5.2.4</selenide.version>
         <lombok.version>1.18.8</lombok.version>
-        <allure.version>2.11.0</allure.version>
+        <allure.version>2.12.1</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <jackson.version>2.9.9</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
