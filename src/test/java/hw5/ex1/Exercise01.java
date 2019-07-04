@@ -66,6 +66,6 @@ public class Exercise01 extends BaseTest {
         // 3. Perform login
         actionSteps.loginToEpamGitHubIoTestSite(userInfo.getProperty("user.name"), userInfo.getProperty("user.password"));
         // 4. Assert User name in the left-top side of screen that user is loggined
-        assertionSteps.checkingValidAccountName(userInfo.getProperty("PITER CHIAILOVSKIIII"));
+        assertionSteps.checkingValidAccountName("PITER CHIAILOVSKIIII");
     }
 }
