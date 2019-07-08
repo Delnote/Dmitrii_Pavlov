@@ -1,4 +1,4 @@
-package hw5.voids;
+package hw6;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +9,7 @@ import java.util.List;
 
 public class DifferentElementsPage extends BasePage {
 
-    public DifferentElementsPage(WebDriver driver) {
-        super(driver);
-    }
+    private static DifferentElementsPage instance;
 
     @FindBy(xpath = "//label[@class = 'label-checkbox']")
     private List<WebElement> checkboxes;
@@ -27,6 +25,21 @@ public class DifferentElementsPage extends BasePage {
 
     @FindBy(xpath = "//input[@value = 'Button']")
     private WebElement button;
+
+    public DifferentElementsPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public static DifferentElementsPage getInstance(WebDriver driver) {
+        if (instance == null) {
+            instance = new DifferentElementsPage(driver);
+        }
+        return instance;
+    }
+
+    public static void closeInstance() {
+        instance = null;
+    }
 
     public int checkboxesAmount() {
         return checkboxes.size();
@@ -59,4 +72,7 @@ public class DifferentElementsPage extends BasePage {
     public void clickColorType(String element) {
         driver.findElement(By.xpath("//option[contains(text(), '" + element + "')]")).click();
     }
+
+
+
 }

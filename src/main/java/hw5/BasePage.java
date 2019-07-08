@@ -1,4 +1,4 @@
-package hw5.voids;
+package hw5;
 
 import hw3.enums.HeaderMenu;
 import hw3.enums.LeftSideMenu;

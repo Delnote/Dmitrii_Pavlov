@@ -72,10 +72,20 @@
         <profile>
             <id>testEpamGithubWebPageHW5</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/testEpamGithubWebPageHW5.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>testEpamGithubWebPageHW6</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/testEpamGithubWebPageHW06.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -93,6 +103,7 @@
         <allure.version>2.12.1</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <jackson.version>2.9.9</jackson.version>
+        <cucumber.version>1.2.5</cucumber.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -154,6 +165,20 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
