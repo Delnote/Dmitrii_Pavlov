@@ -26,6 +26,7 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.accountUserName(), userName);
     }
 
+    // TODO It will be better made steps with each element or specify them on the current
     @Then("Home page interface contains proper elements")
     public void allInterfacesContainProperElements() {
         assertEquals(homePage.amountOfIconItems(), 4);
@@ -51,6 +52,7 @@ public class AssertionSteps extends BaseStep {
     }
 
     @Then("Different Elements page interface contains proper elements")
+    // TODO It will be better made steps with each element or specify them on the current
     public void DifferentElementsPageInterfaceContainProperElements() {
         assertEquals(differentElementsPage.checkboxesAmount(), 4);
         assertEquals(differentElementsPage.radioButtonsAmount(), 4);
@@ -69,6 +71,8 @@ public class AssertionSteps extends BaseStep {
         assertTrue(differentElementsPage.navigationSideBarExists());
     }
 
+    // TODO From the scenario point of view it will be better to split this step to 2 ones
+    // TODO I think you could improve here. using this step  @Then("1 log row has \"(.+): condition changed to (.+)\" text in log section")
     @Then("Log status for (.+) and (.+) is (.+)")
     public void properLogRowAndValueShouldBeDisplayed(String checkbox1, String checkbox2, String statement) {
         assertTrue(differentElementsPage.logStatus()
@@ -102,26 +106,31 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.pageTitle(), pageTitle);
     }
 
+    // TODO Why do you do not sent number as paramenter?
     @And("6 NumberType Dropdowns are displayed on Users Table on User Table Page")
     public void sixNumberTypeDropdownsAreDisplayed() {
         assertEquals(userTablePage.dropdownsAmount(), 6);
     }
 
+    // TODO Why do you do not sent number as paramenter?
     @And("6 User names are displayed on Users Table on User Table Page")
     public void sixUserNamesAreDisplayed() {
         assertTrue(userTablePage.userNamesIsDisplayed());
     }
 
+    // TODO Why do you do not sent number as paramenter?
     @And("6 Description images are displayed on Users Table on User Table Page")
     public void sixDescriptionImagesAreDisplayed() {
         assertTrue(userTablePage.descriptionImagesIsDisplayed());
     }
 
+    // TODO Why do you do not sent number as paramenter?
     @And("6 Description texts under images are displayed on Users Table on User Table Page")
     public void sixDescriptionTextsUnderImagesAreDisplayed() {
         assertTrue(userTablePage.textUnderImagesIsDisplayed());
     }
 
+    // TODO Why do you do not sent number as paramenter?
     @And("6 checkboxes are displayed on Users Table on User Table Page")
     public void sixCheckboxesAreDisplayed() {
         assertTrue(userTablePage.userCheckboxesIsDisplayed());
@@ -143,6 +152,7 @@ public class AssertionSteps extends BaseStep {
                 .contains(String.format("%s: condition changed to %s", vip, statement)));
     }
 
+    // TODO looks like as code duplication
     @Then("Droplist contains values:")
     public void droplistContainsValues(List<String> items) {
         List<WebElement> userOptions = TestContext.getDriver()
