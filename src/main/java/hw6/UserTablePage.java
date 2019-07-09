@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserTablePage extends BasePage{
 
@@ -49,20 +50,20 @@ public class UserTablePage extends BasePage{
         return dropdowns.size();
     }
 
-    public boolean userNamesIsDisplayed() {
-        return !userNames.isEmpty();
+    public int userNamesAmount() {
+        return userNames.size();
     }
 
-    public boolean descriptionImagesIsDisplayed() {
-        return !descriptionImages.isEmpty();
+    public int descriptionImagesAmount() {
+        return descriptionImages.size();
     }
 
-    public boolean textUnderImagesIsDisplayed() {
-        return !textUnderImages.isEmpty();
+    public int textUnderImagesAmount() {
+        return textUnderImages.size();
     }
 
-    public boolean userCheckboxesIsDisplayed() {
-        return !userCheckboxes.isEmpty();
+    public int userCheckboxesAmount() {
+        return userCheckboxes.size();
     }
 
     public List<String> userNumbers() {
@@ -83,5 +84,13 @@ public class UserTablePage extends BasePage{
 
     public void userDropdownClick(String name) {
         driver.findElement(By.xpath("//td[contains(string(), '" + name +"')]//..//select")).click();
+    }
+
+    public List<String> userOptionsList(String name) {
+        List<WebElement> userOptions = driver
+                .findElements(By.xpath("//td[contains(string(), '" + name + "')]//..//option"));
+        return userOptions.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 }

@@ -2,8 +2,8 @@ package hw3.ex2;
 
 import hw3.base.BaseTest;
 import hw3.enums.HeaderMenu;
-import hw3.enums.ServiceMenuDropdownItems;
 import hw3.enums.LeftSideMenu;
+import hw3.enums.ServiceMenuDropdownItems;
 import hw3.steps.ActionSteps;
 import hw3.steps.AssertionSteps;
 import hw5.AllureAttachmentListener;
@@ -15,8 +15,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static hw3.enums.DifferentElementsPageData.*;
-import static hw3.enums.MainPageData.*;
-import static hw3.utils.FileUtils.readUserFromFile;
+import static hw3.enums.MainPageData.HOME_PAGE;
 
 @Feature("HW3 EX2 EPAM JDI site testing")
 @Listeners(AllureAttachmentListener.class)

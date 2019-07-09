@@ -2,25 +2,51 @@ Feature: Exercise01
 
   Scenario: Interface test
     Given I am on "Home Page"
-    When I login as user "Piter Chailovskii"
-    | userName | password |
-    | epam | 1234 |
+    When I login as user: userName "epam" and password "1234"
     Then User name should be 'PITER CHAILOVSKII'
-    Then Home page interface contains proper elements
+    # TODO What does 'proper' mean?
+    # Fixed
+    Then 4 icons on Home page
+    Then 4 icon description texts on Home page
+    Then Under icon texts On Home Page are correct
+    Then Main text title on Home page is MAIN_PAGE_TEXT_HEADER
+    Then Main page MAIN_PAGE_TEXT on Home page
     When I click on "Service" button in Header
-    Then Header dropdown menu contains all proper elements
+    # TODO What does 'all proper' mean?
+    # Fixed
+    Then Header dropdown menu contains correct elements
     When I click left side menu Service item
-    Then Left side dropdown menu contains all proper elements
+    # TODO What does 'all proper' mean?
+    # Fixed
+    Then Left side dropdown menu contains correct elements
     When I go to header Service dropdown menu
     And I click on "DIFFERENT_ELEMENTS" button in Service dropdown
-    Then Different Elements page interface contains proper elements
+    # TODO What does 'proper' mean?
+    # Fixed
+    Then 4 checkboxes on the Different Elements page
+    Then 4 radio buttons on the Different Elements page
+    Then There is a Button on Different Elements page
+    Then There is a Default Button on Different Elements page
+    Then There is a Colors dropdown on Different Elements page
     Then Right section should be displayed
     Then Left section should be displayed
-    When I click Water and Wind checkboxes
-    Then Log status for Water and Wind is true
+    When I click Water checkbox on Different Elements page
+    When And I click Wind checkbox on Different Elements page
+    # TODO It will be better to use Then 1 log row has "Vip: condition changed to true" text in log section step here
+    # Fixed
+    Then Water log row has "Water: condition changed to true" text in log section
+    Then Wind log row has "Wind: condition changed to true" text in log section
     When I select Selen radio button
-    Then Proper log status for metal is Selen
-    When I select Yellow in colors dwopdown
-    Then I see log for Colors is Yellow
-    When I uncheck Water and Wind checkboxes
-    Then Log status for Water and Wind changed to false
+    # TODO It will be better to use Then 1 log row has "Vip: condition changed to true" text in log section step here
+    # Fixed
+    Then Selen log row has "metal: condition changed to Selen" text in log section
+    When I select Yellow in colors select
+    # TODO It will be better to use Then 1 log row has "Vip: condition changed to true" text in log section step here
+    # Fixed
+    Then Colors log row has "Colors: condition changed to Yellow" text in log section
+    When I uncheck Water checkbox
+    When And I uncheck Water checkbox
+    # TODO It will be better to use Then 1 log row has "Vip: condition changed to true" text in log section step here
+    # Fixed
+    Then New Water log row has "Water: condition changed to false" text in log section
+    Then New Wind log row has "Wind: condition changed to false" text in log section

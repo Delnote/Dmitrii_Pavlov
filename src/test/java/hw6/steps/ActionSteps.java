@@ -1,30 +1,23 @@
 package hw6.steps;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import hw3.enums.HeaderMenu;
 import hw3.enums.LeftSideMenu;
 import hw3.enums.ServiceMenuDropdownItems;
-import hw6.entities.User;
-import hw6.hooks.TestContext;
-
-import java.util.List;
 
 public class ActionSteps extends BaseStep {
 
-    @Given("I am on \"Home Page\"")
-    public void IAmOnTheHomePage() {
-        TestContext.getDriver().get("https://epam.github.io/JDI/index.html");
-    }
+    // TODO it is better to have separate class for the Given annotations
+    // Fixed
 
-    @When("I login as user \"Piter Chailovskii\"")
-    public void ILoginAsUserPiterChailovskii(List<User> users) {
-        User user = users.get(0);
-
+    // TODO It is should be 'I login as uses '...'' for the another user you will create one more step def
+    // Fixed
+    @When("I login as user: userName \"(.+)\" and password \"(.+)\"")
+    public void iLoginAs(String userName, String password) {
         homePage.userIconClick();
-        homePage.fillLoginTextField(user.getUserName());
-        homePage.fillPasswordTextFiels(user.getPassword());
+        homePage.fillLoginTextField(userName);
+        homePage.fillPasswordTextFiels(password);
         homePage.loginButtonClick();
     }
 
@@ -48,30 +41,52 @@ public class ActionSteps extends BaseStep {
         homePage.clickHeaderDropdownMenuItems(menuItem);
     }
 
-    @When("I click (.+) and (.+) checkboxes")
-    public void iClickWaterAndWindCheckboxes(String checkbox1, String checkbox2) {
-        differentElementsPage.clickCheckbox(checkbox1);
-        differentElementsPage.clickCheckbox(checkbox2);
+    // TODO It will be better to split this step for 2 from the Scenario ppoint of view
+    // TODO It will be better description of the page where checkbox exist
+    // Fixed
+    @When("I click (.+) checkbox on Different Elements page")
+    public void iClickWaterCheckboxOnDifferentElementsPage(String checkbox) {
+        differentElementsPage.clickCheckbox(checkbox);
+    }
+
+    @And("And I click (.+) checkbox on Different Elements page")
+    public void iClickWindCheckboxOnDifferentElementsPage(String checkbox) {
+        differentElementsPage.clickCheckbox(checkbox);
     }
 
     @When("I select (.+) radio button")
-    public void iSelectSelenRadioButton(String radioButton) {
+    // TODO It will be better call method 'iSelectRadioButtonOn...'
+    // TODO It will be better description of the page where radiobutton exist
+    // Fixed
+    public void iSelectRadioButtonOnDifferentElementsPage(String radioButton) {
         differentElementsPage.clickRadioButton(radioButton);
     }
 
-    @When("I select (.+) in colors dwopdown")
-    public void iSelectYellowInColorsDwopdown(String color) {
+    // TODO dropdown not dwopdown :)
+    // Fixed
+    @When("I select (.+) in colors select")
+    // TODO It will be better description of the page where dropdown exist
+    // TODO It will be better call method 'iSelectInColorsDropdownOn...'
+    // Fixed
+    public void iSelectInColorsSelectOnDifferentElementsPage(String color) {
         differentElementsPage.clickColorType(color);
     }
 
-    @When("I uncheck (.+) and (.+) checkboxes")
-    public void iUncheckWaterAndWindCheckboxes(String checkbox1, String checkbox2) {
-        differentElementsPage.clickCheckbox(checkbox1);
-        differentElementsPage.clickCheckbox(checkbox2);
+    // TODO From the scenario point of view it will be better to split this step to 2 ones
+    // TODO It is looks like code duplication of the step @When("I click (.+) and (.+) checkboxes")
+    // Fixed
+    @When("I uncheck (.+) checkbox")
+    public void iUncheckWaterCheckboxOnDifferentElementsPage(String checkbox) {
+        differentElementsPage.clickCheckbox(checkbox);
+    }
+
+    @When("And I uncheck (.+) checkbox")
+    public void iUncheckWindCheckboxOnDifferentElementsPage(String checkbox) {
+        differentElementsPage.clickCheckbox(checkbox);
     }
 
     @When("I select 'vip' checkbox for \"(.+)\"")
-    public void iSelectVipCheckbox(String name) {
+    public void iSelectVipCheckboxOnDifferentElementsPage(String name) {
         userTablePage.clickCheckbox(name);
     }
 

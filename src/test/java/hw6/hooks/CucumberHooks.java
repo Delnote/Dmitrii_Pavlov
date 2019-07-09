@@ -5,7 +5,6 @@ import cucumber.api.java.Before;
 import hw6.DifferentElementsPage;
 import hw6.HomePage;
 import hw6.UserTablePage;
-import hw6.entities.User;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
