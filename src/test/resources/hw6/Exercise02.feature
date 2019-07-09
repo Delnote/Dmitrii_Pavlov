@@ -11,8 +11,6 @@ Feature: Exercise02
     And 6 Description images are displayed on Users Table on User Table Page
     And 6 Description texts under images are displayed on Users Table on User Table Page
     And 6 checkboxes are displayed on Users Table on User Table Page
-    # TODO Without context is not clear what is User table should have values
-    # Fixed
     And Users table data on User Table page contains following values:
       | Number | User             |  Description                       |
       | 1      | Roman            |  Wolverine                         |
@@ -24,8 +22,6 @@ Feature: Exercise02
     When I select 'vip' checkbox for "Sergey Ivan"
     Then 1 log row has "Vip: condition changed to true" text in log section
     When I click on dropdown in column Type for user Roman
-    # TODO Without context is not clear what is dropdown should have values
-    # Fixed
     Then Roman user dropdown list on User Table page contains values:
       | Admin           |
       | User            |

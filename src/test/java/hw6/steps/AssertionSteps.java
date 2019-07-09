@@ -3,14 +3,11 @@ package hw6.steps;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hw3.enums.MainPageData;
-import hw3.enums.ServiceMenuDropdownItems;
 import hw3.enums.UnderIconsText;
 import hw6.entities.UserData;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -22,8 +19,6 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.accountUserName(), userName);
     }
 
-    // TODO It will be better made steps with each element or specify them on the current
-    // Fixed
     @Then("(.+) icons on Home page")
     public void iconsOnUserTablePage(int size) {
         assertEquals(homePage.amountOfIconItems(), size);
@@ -50,23 +45,17 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.mainPageText(), text.getName());
     }
 
-    @Then("Header dropdown menu contains correct elements")
-    public void dropdownMenuContainsAllProperElements() {
-        List<String> enumMenuItemsList = Arrays.stream(ServiceMenuDropdownItems.values())
-                .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
-        assertTrue(homePage.headerServiceDropdownMenuItems().containsAll(enumMenuItemsList));
+    @Then("Header dropdown menu contains '(.+)' elements")
+    public void dropdownMenuContainsAllElements(List<String> menuItems) {
+        assertTrue(homePage.headerServiceDropdownMenuItems().retainAll(menuItems));
     }
 
-    @Then("Left side dropdown menu contains correct elements")
-    public void checkLeftSideServiceMenuItems() {
-        List<String> enumMenuItemsList = Stream.of(ServiceMenuDropdownItems.values())
-                .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
-        assertTrue(homePage.leftSideServiceDropdownMenuItems().containsAll(enumMenuItemsList));
+    @Then("Left side dropdown menu contains '(.+)' elements")
+    public void checkLeftSideServiceMenuItems(List<String> menuItems) {
+        assertTrue(homePage.leftSideServiceDropdownMenuItems().retainAll(menuItems));
     }
 
     @Then("(.+) checkboxes on the Different Elements page")
-    // TODO It will be better made steps with each element or specify them on the current
-    // Fixed
     public void checkboxesOnTheifferentElementsPage(int size) {
         assertEquals(differentElementsPage.checkboxesAmount(), size);
     }
@@ -101,9 +90,6 @@ public class AssertionSteps extends BaseStep {
         assertTrue(differentElementsPage.navigationSideBarExists());
     }
 
-    // TODO From the scenario point of view it will be better to split this step to 2 ones
-    // TODO I think you could improve here. using this step  @Then("1 log row has \"(.+): condition changed to (.+)\" text in log section")
-    // Fixed
     @Then("Water log row has \"(.+): condition changed to (.+)\" text in log section")
     public void logRowForWaterInLogSection(String checkbox, String statement) {
         assertTrue(differentElementsPage.logStatus()
@@ -145,36 +131,26 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.pageTitle(), pageTitle);
     }
 
-    // TODO Why do you do not sent number as paramenter?
-    // Fixed
     @And("(.+) NumberType Dropdowns are displayed on Users Table on User Table Page")
     public void sixNumberTypeDropdownsAreDisplayed(int size) {
         assertEquals(userTablePage.dropdownsAmount(), size);
     }
 
-    // TODO Why do you do not sent number as paramenter?
-    // Fixed
     @And("(.+) User names are displayed on Users Table on User Table Page")
     public void sixUserNamesAreDisplayed(int size) {
         assertEquals(userTablePage.userNamesAmount(), size);
     }
 
-    // TODO Why do you do not sent number as paramenter?
-    // Fixed
     @And("(.+) Description images are displayed on Users Table on User Table Page")
     public void sixDescriptionImagesAreDisplayed(int size) {
         assertEquals(userTablePage.descriptionImagesAmount(), size);
     }
 
-    // TODO Why do you do not sent number as paramenter?
-    // Fixed
     @And("(.+) Description texts under images are displayed on Users Table on User Table Page")
     public void sixDescriptionTextsUnderImagesAreDisplayed(int size) {
         assertEquals(userTablePage.textUnderImagesAmount(), size);
     }
 
-    // TODO Why do you do not sent number as paramenter?
-    // Fixed
     @And("(.+) checkboxes are displayed on Users Table on User Table Page")
     public void sixCheckboxesAreDisplayed(int size) {
         assertEquals(userTablePage.userCheckboxesAmount(), size);
@@ -196,8 +172,6 @@ public class AssertionSteps extends BaseStep {
                 .contains(String.format("%s: condition changed to %s", vip, statement)));
     }
 
-    // TODO looks like as code duplication
-    // Fixed
     @Then("(.+) user dropdown list on User Table page contains values:")
     public void dropdownListContainsValues(String name, List<String> items) {
         assertEquals(userTablePage.userOptionsList(name), items);
