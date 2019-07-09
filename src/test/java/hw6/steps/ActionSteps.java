@@ -8,11 +8,6 @@ import hw3.enums.ServiceMenuDropdownItems;
 
 public class ActionSteps extends BaseStep {
 
-    // TODO it is better to have separate class for the Given annotations
-    // Fixed
-
-    // TODO It is should be 'I login as uses '...'' for the another user you will create one more step def
-    // Fixed
     @When("I login as user: userName \"(.+)\" and password \"(.+)\"")
     public void iLoginAs(String userName, String password) {
         homePage.userIconClick();
@@ -41,9 +36,6 @@ public class ActionSteps extends BaseStep {
         homePage.clickHeaderDropdownMenuItems(menuItem);
     }
 
-    // TODO It will be better to split this step for 2 from the Scenario ppoint of view
-    // TODO It will be better description of the page where checkbox exist
-    // Fixed
     @When("I click (.+) checkbox on Different Elements page")
     public void iClickWaterCheckboxOnDifferentElementsPage(String checkbox) {
         differentElementsPage.clickCheckbox(checkbox);
@@ -55,26 +47,15 @@ public class ActionSteps extends BaseStep {
     }
 
     @When("I select (.+) radio button")
-    // TODO It will be better call method 'iSelectRadioButtonOn...'
-    // TODO It will be better description of the page where radiobutton exist
-    // Fixed
     public void iSelectRadioButtonOnDifferentElementsPage(String radioButton) {
         differentElementsPage.clickRadioButton(radioButton);
     }
 
-    // TODO dropdown not dwopdown :)
-    // Fixed
     @When("I select (.+) in colors select")
-    // TODO It will be better description of the page where dropdown exist
-    // TODO It will be better call method 'iSelectInColorsDropdownOn...'
-    // Fixed
     public void iSelectInColorsSelectOnDifferentElementsPage(String color) {
         differentElementsPage.clickColorType(color);
     }
 
-    // TODO From the scenario point of view it will be better to split this step to 2 ones
-    // TODO It is looks like code duplication of the step @When("I click (.+) and (.+) checkboxes")
-    // Fixed
     @When("I uncheck (.+) checkbox")
     public void iUncheckWaterCheckboxOnDifferentElementsPage(String checkbox) {
         differentElementsPage.clickCheckbox(checkbox);
