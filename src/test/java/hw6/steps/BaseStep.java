@@ -16,5 +16,4 @@ public abstract class BaseStep {
         differentElementsPage = DifferentElementsPage.getInstance(TestContext.getDriver());
         userTablePage = UserTablePage.getInstance(TestContext.getDriver());
     }
-
 }
