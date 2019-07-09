@@ -3,14 +3,11 @@ package hw6.steps;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hw3.enums.MainPageData;
-import hw3.enums.ServiceMenuDropdownItems;
 import hw3.enums.UnderIconsText;
 import hw6.entities.UserData;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -48,18 +45,14 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.mainPageText(), text.getName());
     }
 
-    @Then("Header dropdown menu contains correct elements")
-    public void dropdownMenuContainsAllProperElements() {
-        List<String> enumMenuItemsList = Arrays.stream(ServiceMenuDropdownItems.values())
-                .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
-        assertTrue(homePage.headerServiceDropdownMenuItems().containsAll(enumMenuItemsList));
+    @Then("Header dropdown menu contains '(.+)' elements")
+    public void dropdownMenuContainsAllElements(List<String> menuItems) {
+        assertTrue(homePage.headerServiceDropdownMenuItems().retainAll(menuItems));
     }
 
-    @Then("Left side dropdown menu contains correct elements")
-    public void checkLeftSideServiceMenuItems() {
-        List<String> enumMenuItemsList = Stream.of(ServiceMenuDropdownItems.values())
-                .map(ServiceMenuDropdownItems::getUpperCaseName).collect(Collectors.toList());
-        assertTrue(homePage.leftSideServiceDropdownMenuItems().containsAll(enumMenuItemsList));
+    @Then("Left side dropdown menu contains '(.+)' elements")
+    public void checkLeftSideServiceMenuItems(List<String> menuItems) {
+        assertTrue(homePage.leftSideServiceDropdownMenuItems().retainAll(menuItems));
     }
 
     @Then("(.+) checkboxes on the Different Elements page")

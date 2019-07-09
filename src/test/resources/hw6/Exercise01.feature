@@ -10,11 +10,9 @@ Feature: Exercise01
     Then Main text title on Home page is MAIN_PAGE_TEXT_HEADER
     Then Main page MAIN_PAGE_TEXT on Home page
     When I click on "Service" button in Header
-    # TODO What does 'correct elements' mean?
-    Then Header dropdown menu contains correct elements
+    Then Header dropdown menu contains 'Support, Dates, Complex Table, Simple Table, User Table, Tables With Pages, Different Elements, Perfomance' elements
     When I click left side menu Service item
-    # TODO What does 'correct elements' mean?
-    Then Left side dropdown menu contains correct elements
+    Then Left side dropdown menu contains 'Support, Dates, Complex Table, Simple Table, User Table, Tables With Pages, Different Elements, Perfomance' elements
     When I go to header Service dropdown menu
     And I click on "DIFFERENT_ELEMENTS" button in Service dropdown
     Then 4 checkboxes on the Different Elements page
