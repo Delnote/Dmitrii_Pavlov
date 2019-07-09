@@ -72,7 +72,4 @@ public class DifferentElementsPage extends BasePage {
     public void clickColorType(String element) {
         driver.findElement(By.xpath("//option[contains(text(), '" + element + "')]")).click();
     }
-
-
-
 }
